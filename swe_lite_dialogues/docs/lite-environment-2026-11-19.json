@@ -1,0 +1,191 @@
+{
+  "dataset": "basic_v34",
+  "date": "2026-11-19",
+  "selection": "Author-selected Lite environment controls. Original target and regression tests, with no solver calls. No pilot IDs specified in the team message or located in the team repository.",
+  "selection_rule": "Five previously unverified originals in different repositories spanning all four update types and both lengths; selected before executing controls.",
+  "base_control": "An unused text file avoids the official harness skipping an empty prediction; production sources are unchanged.",
+  "harness": "swebench==4.1.0",
+  "platform": "linux/amd64",
+  "solver_calls": 0,
+  "candidates_sha256": "5032cbd80599de8b50e74c21223ce9f7e26168ff5996f7f4298ca2355e1b239f",
+  "source_sha256": "25636a49549c7970a844106355023b3e1b5ead3a4aa4ee84b191e30fc8f20365",
+  "source_verification_sha256": "ad63a75159c6d64d1e16f2732413044fa92597a56918bfe6d1d7967c41e61ead",
+  "scope": "Final-task author controls in official images. Counts are for the original named target and regression tests.",
+  "tasks": [
+    {
+      "instance_id": "astropy__astropy-12907",
+      "category": "clarification",
+      "messages": 2,
+      "base_commit": "d16bfe05a744909de4b27f5875fe0d4ed41ce607",
+      "image_digest": "swebench/sweb.eval.x86_64.astropy_1776_astropy-12907@sha256:e082963099ed7d5a5f75a0be46e338be36faae33b2cba5289a9ddbd505997f1f",
+      "base": {
+        "run_id": "split-full-d7c7e993b071",
+        "report_sha256": "694d47ab10f881fae49f54c1d0d1776143e5d268ca6f0c3bc5dee7ebbb705361",
+        "log_sha256": "4e51a739cb8b2a23a3a1ca7ebc6f9e66137b71768f58725dcdeed76609db43af",
+        "target": {
+          "passed": 0,
+          "total": 2
+        },
+        "regression": {
+          "passed": 13,
+          "total": 13
+        },
+        "runner_summary": "========================= 2 failed, 13 passed in 0.22s ========================="
+      },
+      "gold": {
+        "run_id": "split-full-9065aef934f4",
+        "report_sha256": "fe3f3bddc9631279d3babf7270913070d91e9207c3468bd947823aee3e7b1b86",
+        "log_sha256": "f56002362c6f7f00a9f3e301d88c737cc5ac6b07ec824343fbf330fd4901edbd",
+        "target": {
+          "passed": 2,
+          "total": 2
+        },
+        "regression": {
+          "passed": 13,
+          "total": 13
+        },
+        "runner_summary": "============================== 15 passed in 0.23s =============================="
+      }
+    },
+    {
+      "instance_id": "django__django-11999",
+      "category": "revision",
+      "messages": 2,
+      "base_commit": "84633905273fc916e3d17883810d9969c03f73c2",
+      "image_digest": "swebench/sweb.eval.x86_64.django_1776_django-11999@sha256:3c7e7f035f611b17f2093ee6409364bc28cce8b9bac266b9590db762d197607e",
+      "base": {
+        "run_id": "split-full-d7c7e993b071",
+        "report_sha256": "fbea2edd89b9aec4fe24c6345fa0a235d1a550079468153a5e815668c3f3cfd0",
+        "log_sha256": "c874a6aa0cab98b116f4d2baed009d3c67b0f1f16e81e0ce49cf589e06f3d501",
+        "target": {
+          "passed": 0,
+          "total": 1
+        },
+        "regression": {
+          "passed": 30,
+          "total": 30
+        },
+        "runner_summary": "FAILED (failures=1)"
+      },
+      "gold": {
+        "run_id": "split-full-9065aef934f4",
+        "report_sha256": "196981629b8f9ab0fff6a0c0150c19ee5a8a41bdb9f554f54921a4a238246893",
+        "log_sha256": "edbe7f53dfbb58384be8f3c26a6cf3790d42cb5ccf4e3c2f40c7a9fd811c0491",
+        "target": {
+          "passed": 1,
+          "total": 1
+        },
+        "regression": {
+          "passed": 30,
+          "total": 30
+        },
+        "runner_summary": "OK"
+      }
+    },
+    {
+      "instance_id": "pytest-dev__pytest-8365",
+      "category": "cumulative",
+      "messages": 3,
+      "base_commit": "4964b468c83c06971eb743fbc57cc404f760c573",
+      "image_digest": "swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-8365@sha256:ad963610bf29e6d0df24f5eab20df20ada6db050f21434f2dd329075286c4044",
+      "base": {
+        "run_id": "split-full-d7c7e993b071",
+        "report_sha256": "423d0f2f23f8dcd3492b3e702eb1f2eddea01f69cd03a42e9acf64fc75551869",
+        "log_sha256": "738e1a2670cfdc7159649cbd159389d77365b5c52a9cf775a7708d57bf03c675",
+        "target": {
+          "passed": 0,
+          "total": 1
+        },
+        "regression": {
+          "passed": 32,
+          "total": 32
+        },
+        "runner_summary": "=================== 1 failed, 32 passed, 1 skipped in 0.28s ===================="
+      },
+      "gold": {
+        "run_id": "split-full-9065aef934f4",
+        "report_sha256": "06edac5287d4798bd17af39f8e7e62b396c1646e80da6f7db725ed18b0dd4722",
+        "log_sha256": "2c7bd5a4bd32b567a013bcbf5252549197458e95bf8aac0cdc29bf6961d834e4",
+        "target": {
+          "passed": 1,
+          "total": 1
+        },
+        "regression": {
+          "passed": 32,
+          "total": 32
+        },
+        "runner_summary": "======================== 33 passed, 1 skipped in 0.27s ========================="
+      }
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-8282",
+      "category": "mixed",
+      "messages": 3,
+      "base_commit": "2c2335bbb8af99fa132e1573bbf45dc91584d5a2",
+      "image_digest": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-8282@sha256:ed33c4edb0f6e40c6ddc450cfacfd216e74ca2076ed17425df4786c89c09dd7b",
+      "base": {
+        "run_id": "split-full-d7c7e993b071",
+        "report_sha256": "5749a8c9d026659ff99928692bc03fecd23b099f360949f31d1fc2d023b01f1f",
+        "log_sha256": "7a16a0cb3af4de50ab828bd7aabb2471bcf328fa39a0b05ea549999b22085129",
+        "target": {
+          "passed": 0,
+          "total": 1
+        },
+        "regression": {
+          "passed": 16,
+          "total": 16
+        },
+        "runner_summary": "================== 1 failed, 16 passed, 65 warnings in 0.85s ==================="
+      },
+      "gold": {
+        "run_id": "split-full-9065aef934f4",
+        "report_sha256": "b8e6ec5b5f992cb5677088f83d3af672262d273c4a58398ae602b40089e53192",
+        "log_sha256": "fdb13b765bc18e2a335380944cfdfbd2b6c6afe65f04d13a999e13c590719893",
+        "target": {
+          "passed": 1,
+          "total": 1
+        },
+        "regression": {
+          "passed": 16,
+          "total": 16
+        },
+        "runner_summary": "======================= 17 passed, 65 warnings in 0.80s ========================"
+      }
+    },
+    {
+      "instance_id": "sympy__sympy-12481",
+      "category": "revision",
+      "messages": 2,
+      "base_commit": "c807dfe7569692cad24f02a08477b70c1679a4dd",
+      "image_digest": "swebench/sweb.eval.x86_64.sympy_1776_sympy-12481@sha256:bb526b7d1c4a160d96d3ab925a6b382194a19bf77a72df71e220ce19fe924e7f",
+      "base": {
+        "run_id": "split-full-d7c7e993b071",
+        "report_sha256": "54b5364dbdbbe424af445127242d539406989274ea3944940f8924ac9b54e941",
+        "log_sha256": "49c03d5ce90fd9096620eb3e0eb5ebfcb2a60dbc33f4363cdf3f8d4e8c055607",
+        "target": {
+          "passed": 0,
+          "total": 1
+        },
+        "regression": {
+          "passed": 7,
+          "total": 7
+        },
+        "runner_summary": "=========== tests finished: 8 passed, 1 exceptions, in 0.08 seconds ============"
+      },
+      "gold": {
+        "run_id": "split-full-9065aef934f4",
+        "report_sha256": "750ebb6f71bd4e1e8b0d2fc5e1f7c8ce2982b565fba62e1e0747fa043c5d0bd9",
+        "log_sha256": "62d3dff95eed05931b638bb520e2dab75137e6ecff032985aebf82b5f0448c09",
+        "target": {
+          "passed": 1,
+          "total": 1
+        },
+        "regression": {
+          "passed": 7,
+          "total": 7
+        },
+        "runner_summary": "================== tests finished: 9 passed, in 0.08 seconds ==================="
+      }
+    }
+  ]
+}

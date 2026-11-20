@@ -14,7 +14,7 @@ This is a **team preview**, ready for inspecting the data and integrating an eva
 | Three-message share | 61.2% |
 | Cumulative / Clarification / Revision / Mixed | 12 / 36 / 18 / 86 |
 | Repositories represented | 10 |
-| Historical author base/gold environment checks | 3 tasks; 149 remain unvalidated |
+| Author base/gold environment checks | 8 of 152 tasks, with 144 remaining |
 
 The other 148 originals were not admitted to this preview. They are not extra samples or silently counted as successes. See [validation and limitations](docs/validation.md).
 

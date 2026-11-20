@@ -1,6 +1,6 @@
 {
   "harness_package": "swebench==4.1.0",
-  "compatibility_status": "Pinned compatibility baseline: swebench==4.1.0. Historical author base/gold checks cover three tasks; full dataset runtime validation is pending.",
+  "compatibility_status": "swebench==4.1.0 has run both original controls on 8 of the 152 Lite tasks.",
   "dataset_format": "Original SWE-bench rows with repo, version, base_commit, test_patch, FAIL_TO_PASS and PASS_TO_PASS.",
   "loader_source": "https://github.com/SWE-bench/SWE-bench/blob/v4.1.0/swebench/harness/utils.py",
   "test_spec_source": "https://github.com/SWE-bench/SWE-bench/blob/v4.1.0/swebench/harness/test_spec/test_spec.py",
@@ -13,7 +13,7 @@
   "limitations": [
     "The previously proposed newer harness revision requires image/eval_script metadata absent from this snapshot; it is not a drop-in replacement.",
     "v4.1.0 is a compatibility baseline. Newer releases include grading fixes; before formal results, audit raw test logs and exit codes and decide how to adopt those fixes.",
-    "Historical author base/gold runs cover django__django-12983, django__django-14017 and sympy__sympy-20322. Intermediate-stage validation is limited to slugify. No generic solver experiment is included."
+    "The validated_tasks index records final-task environment evidence. Intermediate-stage runtime checks are available for slugify. See docs/validation.md for the scope of each batch."
   ],
   "release_checks": [
     "Independent final-spec review",
@@ -33,6 +33,26 @@
     },
     "sympy__sympy-20322": {
       "evidence": "Separate author archive; see docs/validation.md",
+      "agent_experiment_run": false
+    },
+    "astropy__astropy-12907": {
+      "evidence": "docs/lite-environment-2026-11-19.json",
+      "agent_experiment_run": false
+    },
+    "django__django-11999": {
+      "evidence": "docs/lite-environment-2026-11-19.json",
+      "agent_experiment_run": false
+    },
+    "pytest-dev__pytest-8365": {
+      "evidence": "docs/lite-environment-2026-11-19.json",
+      "agent_experiment_run": false
+    },
+    "sphinx-doc__sphinx-8282": {
+      "evidence": "docs/lite-environment-2026-11-19.json",
+      "agent_experiment_run": false
+    },
+    "sympy__sympy-12481": {
+      "evidence": "docs/lite-environment-2026-11-19.json",
       "agent_experiment_run": false
     }
   }

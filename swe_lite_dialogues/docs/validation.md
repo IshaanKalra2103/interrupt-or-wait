@@ -7,11 +7,11 @@ This is the first team handoff of `basic_v34`, not an all-task runtime certifica
 | Construction | All 300 originals attempted; 152 selected and 148 not selected. Historical author checks rebuilt the selected export and retained original scoring rows. |
 | Handoff checks | File hashes, record identities, final annotation sets, scripted delivery, and scoring-input preparation are checked offline by `verify_release.py`. |
 | Program tests | Fixed fixtures exercise generation review stops, category handling, delivery isolation, and scoring denominators. No model or Docker calls. |
-| Author runtime | Historical base/gold runs exist for three tasks listed below; the other 149 are not environment-validated. Raw evidence remains in the separate author archive. |
+| Author runtime | Eight of the 152 tasks have base/gold environment checks. The author archive holds the raw logs. |
 | Real agent experiments | No general solver adapter or new model scores are included. Scripted delivery and gold-patch tests are not agent success rates. |
 | Intermediate stages | No dataset-wide intermediate score or per-stage gold requirement. Final scoring uses the original task tests. |
 
-Historical author checks:
+The first three author checks were completed before the team handoff.
 
 | Original | Base target tests | Gold target tests | Named regression tests |
 |---|---:|---:|---:|
@@ -19,7 +19,19 @@ Historical author checks:
 | django__django-14017 | 0/2 | 2/2 | 147/147 for both |
 | sympy__sympy-20322 | 0/1 | 1/1 | 89/89 for both |
 
-Base failures are expected. The latter two runs also checked the original issue examples and reconciled raw logs. These are summaries of earlier runs, not Docker runs performed while packaging. The original manifest and per-record environment flags reflect construction-time evidence (one task); `statistics.json` and `preview.json` separately report the three later-known author checks.
+The latter two runs also checked the original issue examples. The frozen manifest records one environment at construction time. The November 3 statistics and preview record the three environments known at the time of the handoff.
+
+On November 19, five further Lite tasks were selected for author checks across five repositories, four update types and both conversation lengths. The team's proposed five-task solver pilot had no published task IDs. Each original ran in its official amd64 image with the reference patch and with an unused text-file addition that lets the grader exercise the unmodified production code.
+
+| Original | Base target tests | Gold target tests | Named regression tests |
+|---|---:|---:|---:|
+| astropy__astropy-12907 | 0/2 | 2/2 | 13/13 for both |
+| django__django-11999 | 0/1 | 1/1 | 30/30 for both |
+| pytest-dev__pytest-8365 | 0/1 | 1/1 | 32/32 for both |
+| sphinx-doc__sphinx-8282 | 0/1 | 1/1 | 16/16 for both |
+| sympy__sympy-12481 | 0/1 | 1/1 | 7/7 for both |
+
+The raw logs account for all six named targets and 98 named regressions in both controls. The pytest module also skipped one test outside those lists. SymPy ran one additional passing test. This batch made zero solver calls. Image digests, original revisions, run IDs and log hashes are in the [November 19 runtime record](lite-environment-2026-11-19.json).
 
 Known limits are retained:
 
@@ -31,4 +43,4 @@ Known limits are retained:
 - The 148 non-selected tasks include source/test conflicts, weak splits, and execution failures. They may be reconsidered; no full exclusion ledger is included in this compact package.
 - `swebench==4.1.0` is a compatibility baseline. Formal experiments should retain raw logs and separately investigate upstream grader limitations.
 
-Packaging preserves `candidates.jsonl`, `evaluation_sources.jsonl`, the source snapshot, and the other unchanged dataset files byte-for-byte. Only sharing metadata, documentation, test fixtures/paths, and evaluation-status wording were adapted. Production pipeline code is unchanged. `PACKAGING.json` records those changes. No task was regenerated or relabeled for this handoff.
+The original Lite snapshot, conversations and scoring rows retain their November 3 hashes. The packaging notes describe that first handoff. The changelog records the later shared-controller update and the November 19 environment checks. [Packaging notes](../PACKAGING.json) · [Changelog](../CHANGELOG.md)

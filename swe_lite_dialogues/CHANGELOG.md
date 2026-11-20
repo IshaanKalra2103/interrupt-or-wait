@@ -3,6 +3,7 @@
 ## 2026-11-19
 
 - The shared delivery controller and trajectory labeler accept a fourth ordered user message for the SWE-bench Pro length comparison. The Lite release still contains 152 two- or three-message conversations.
+- Verified five additional Lite tasks with official base and reference-patch controls. Eight of the 152 Lite originals now have author runtime evidence.
 
 ## team_v1 — 2026-11-03
 

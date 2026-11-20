@@ -1,6 +1,6 @@
 {
   "harness_package": "swebench==4.1.0",
-  "compatibility_status": "Official base/gold controls and raw logs verified 31 of 152 Lite tasks across 10 repositories. Three further tasks have documented exceptions, and 118 await runs.",
+  "compatibility_status": "Official base/gold controls and raw logs verified 45 of 152 Lite tasks across 10 repositories. Nine further tasks have documented exceptions, and 98 await runs.",
   "dataset_format": "Original SWE-bench rows with repo, version, base_commit, test_patch, FAIL_TO_PASS and PASS_TO_PASS.",
   "loader_source": "https://github.com/SWE-bench/SWE-bench/blob/v4.1.0/swebench/harness/utils.py",
   "test_spec_source": "https://github.com/SWE-bench/SWE-bench/blob/v4.1.0/swebench/harness/test_spec/test_spec.py",
@@ -146,6 +146,62 @@
     "sympy__sympy-18189": {
       "evidence": "docs/lite-environment-2026-11-19-batch3.json",
       "agent_experiment_run": false
+    },
+    "astropy__astropy-6938": {
+      "evidence": "docs/lite-environment-2026-11-20.json",
+      "agent_experiment_run": false
+    },
+    "django__django-11049": {
+      "evidence": "docs/lite-environment-2026-11-20.json",
+      "agent_experiment_run": false
+    },
+    "django__django-13757": {
+      "evidence": "docs/lite-environment-2026-11-20.json",
+      "agent_experiment_run": false
+    },
+    "django__django-15061": {
+      "evidence": "docs/lite-environment-2026-11-20.json",
+      "agent_experiment_run": false
+    },
+    "matplotlib__matplotlib-25498": {
+      "evidence": "docs/lite-environment-2026-11-20.json",
+      "agent_experiment_run": false
+    },
+    "pytest-dev__pytest-8906": {
+      "evidence": "docs/lite-environment-2026-11-20.json",
+      "agent_experiment_run": false
+    },
+    "scikit-learn__scikit-learn-25570": {
+      "evidence": "docs/lite-environment-2026-11-20.json",
+      "agent_experiment_run": false
+    },
+    "scikit-learn__scikit-learn-25638": {
+      "evidence": "docs/lite-environment-2026-11-20.json",
+      "agent_experiment_run": false
+    },
+    "sphinx-doc__sphinx-7975": {
+      "evidence": "docs/lite-environment-2026-11-20.json",
+      "agent_experiment_run": false
+    },
+    "sphinx-doc__sphinx-8627": {
+      "evidence": "docs/lite-environment-2026-11-20.json",
+      "agent_experiment_run": false
+    },
+    "sympy__sympy-17630": {
+      "evidence": "docs/lite-environment-2026-11-20.json",
+      "agent_experiment_run": false
+    },
+    "sympy__sympy-18087": {
+      "evidence": "docs/lite-environment-2026-11-20.json",
+      "agent_experiment_run": false
+    },
+    "sympy__sympy-20154": {
+      "evidence": "docs/lite-environment-2026-11-20.json",
+      "agent_experiment_run": false
+    },
+    "sympy__sympy-21847": {
+      "evidence": "docs/lite-environment-2026-11-20.json",
+      "agent_experiment_run": false
     }
   },
   "runtime_caveats": {
@@ -167,6 +223,58 @@
       "agent_experiment_run": false,
       "status": "named_controls_passed_with_extra_failures",
       "extra_failures_in_each_control": 12
+    },
+    "django__django-11848": {
+      "evidence": "docs/lite-environment-2026-11-20.json",
+      "agent_experiment_run": false,
+      "status": "official_raw_disagreement",
+      "base_official_raw_disagreements": 1,
+      "base_official_target_passes": 0,
+      "base_raw_target_passes": 1,
+      "base_official_regression_passes": 43,
+      "base_raw_regression_passes": 43
+    },
+    "django__django-12908": {
+      "evidence": "docs/lite-environment-2026-11-20.json",
+      "agent_experiment_run": false,
+      "status": "official_raw_disagreement",
+      "base_official_raw_disagreements": 2,
+      "base_official_target_passes": 1,
+      "base_raw_target_passes": 1,
+      "base_official_regression_passes": 25,
+      "base_raw_regression_passes": 25,
+      "note": "The official base report reversed the two target statuses. The raw log and individual runs agree on which method passed."
+    },
+    "django__django-14238": {
+      "evidence": "docs/lite-environment-2026-11-20.json",
+      "agent_experiment_run": false,
+      "status": "official_raw_disagreement",
+      "base_official_raw_disagreements": 1,
+      "base_official_target_passes": 0,
+      "base_raw_target_passes": 0,
+      "base_official_regression_passes": 38,
+      "base_raw_regression_passes": 39
+    },
+    "matplotlib__matplotlib-25311": {
+      "evidence": "docs/lite-environment-2026-11-20.json",
+      "agent_experiment_run": false,
+      "status": "named_controls_passed_with_extra_failures",
+      "extra_failures_base": 1,
+      "extra_failures_gold": 1
+    },
+    "pylint-dev__pylint-7080": {
+      "evidence": "docs/lite-environment-2026-11-20.json",
+      "agent_experiment_run": false,
+      "status": "named_controls_passed_with_extra_failures",
+      "extra_failures_base": 2,
+      "extra_failures_gold": 2
+    },
+    "sympy__sympy-18698": {
+      "evidence": "docs/lite-environment-2026-11-20.json",
+      "agent_experiment_run": false,
+      "status": "named_controls_passed_with_extra_failures",
+      "extra_failures_base": 1,
+      "extra_failures_gold": 0
     }
   }
 }

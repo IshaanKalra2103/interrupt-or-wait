@@ -7,7 +7,7 @@ This is the first team handoff of `basic_v34`, not an all-task runtime certifica
 | Construction | All 300 originals attempted; 152 selected and 148 not selected. Historical author checks rebuilt the selected export and retained original scoring rows. |
 | Handoff checks | File hashes, record identities, final annotation sets, scripted delivery, and scoring-input preparation are checked offline by `verify_release.py`. |
 | Program tests | Fixed fixtures exercise generation review stops, category handling, delivery isolation, and scoring denominators. No model or Docker calls. |
-| Author runtime | 31 of 152 tasks have verified base/gold controls across all 10 source repositories. Three additional tasks have documented exceptions. The remaining 118 await runs. |
+| Author runtime | 45 of 152 tasks have verified base/gold controls across all 10 source repositories. Nine additional tasks have documented exceptions. The remaining 98 await runs. |
 | Real agent experiments | No general solver adapter or new model scores are included. Scripted delivery and gold-patch tests are not agent success rates. |
 | Intermediate stages | No dataset-wide intermediate score or per-stage gold requirement. Final scoring uses the original task tests. |
 
@@ -73,6 +73,33 @@ Across all 20 tasks, reference patches passed 27/27 named targets. Both controls
 
 The machine-readable record includes per-task official and raw counts, module summaries, image digests, log hashes and the exit codes from the four individual Django checks. This batch made zero solver calls. [Third-batch results and log hashes](lite-environment-2026-11-19-batch3.json)
 
+### November 20 batch
+
+We selected 20 previously unrun Lite tasks across all eight repositories with remaining tasks and fixed their IDs before running either control. The sample covers all four update types. Thirteen tasks have two messages and seven have three. We checked the original logs from all 40 official runs. Fourteen tasks passed this audit. No solver was run.
+
+| Repository | Verified task numbers | Tasks with a caveat |
+|---|---|---|
+| Astropy | 6938 | — |
+| Django | 11049, 13757, 15061 | 11848, 12908, 14238 |
+| Matplotlib | 25498 | 25311 |
+| Pylint | — | 7080 |
+| pytest | 8906 | — |
+| scikit-learn | 25570, 25638 | — |
+| Sphinx | 7975, 8627 | — |
+| SymPy | 17630, 18087, 20154, 21847 | 18698 |
+
+| Control and evidence | Named target tests passed | Named regression tests passed |
+|---|---:|---:|
+| Base, official grader | 1/41 | 1,321/1,322 |
+| Base, original test logs | 2/41 | 1,322/1,322 |
+| Reference patch, both sources | 41/41 | 1,322/1,322 |
+
+- **Django 11848, 12908 and 14238.** The base grader missed one passing target on 11848, reversed which of the two targets passed on 12908, and missed one passing regression on 14238. Fourteen individual test runs in the pinned images confirmed the original logs for these methods on both controls.
+- **Matplotlib 25311 and Pylint 7080.** A subprocess figure-loading test failed on both controls for Matplotlib. The same two TOML configuration tests failed on both controls for Pylint. All three tests fall outside the named scoring lists.
+- **SymPy 18698.** One additional test, `test_issue_8695`, failed on base and passed with the reference patch. Both runs passed all 147 named regressions.
+
+The two controls reused one official image per task. The 20 images shared 60 distinct layers, of which 28 were already cached. Newly downloaded layers totaled 6.29 GiB compressed. With the images retained through the end of testing, Docker Desktop's allocated disk on the author's Mac grew by 22.52 GiB. [Per-task results, log hashes and storage measurements](lite-environment-2026-11-20.json)
+
 Known limits are retained:
 
 - Categories are uneven; Mixed accounts for 86/152 and many examples use a similar clarify-then-revise pattern.
@@ -83,4 +110,4 @@ Known limits are retained:
 - The 148 non-selected tasks include source/test conflicts, weak splits, and execution failures. They may be reconsidered; no full exclusion ledger is included in this compact package.
 - `swebench==4.1.0` is a compatibility baseline. Formal experiments should retain raw logs and separately investigate upstream grader limitations.
 
-The original Lite snapshot, conversations and scoring rows retain their November 3 hashes. The packaging notes describe that first handoff. The changelog records the later shared-controller update and the November 19 environment checks. [Packaging notes](../PACKAGING.json) · [Changelog](../CHANGELOG.md)
+The original Lite snapshot, conversations and scoring rows retain their November 3 hashes. The packaging notes describe that first handoff. The changelog records the later shared-controller update and the November 19 and 20 environment checks. [Packaging notes](../PACKAGING.json) · [Changelog](../CHANGELOG.md)

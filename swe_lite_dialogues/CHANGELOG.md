@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-11-20
+
+- Ran official base and reference-patch controls on 20 new Lite tasks across eight repositories. Fourteen passed the raw-log audit. Coverage now stands at 45 verified, 9 with documented exceptions and 98 awaiting runs.
+- Fourteen individual Django test runs confirmed three discrepancies in the official base reports. Three other tasks had failures outside the scoring lists. The per-task record includes which control showed each failure and the download and disk totals for the batch. [November 20 results](docs/validation.md#november-20-batch)
+
 ## 2026-11-19
 
 - The shared delivery controller and trajectory labeler accept a fourth ordered user message for the SWE-bench Pro length comparison. The Lite release still contains 152 two- or three-message conversations.

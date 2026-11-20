@@ -5,6 +5,7 @@
 - The shared delivery controller and trajectory labeler accept a fourth ordered user message for the SWE-bench Pro length comparison. The Lite release still contains 152 two- or three-message conversations.
 - The first November 19 batch verified five additional Lite tasks with official base and reference-patch controls, bringing coverage to 8 of 152.
 - The second batch and its seaborn follow-up added five verified environments. Coverage reached 13 of 152 across all 10 repositories. Seaborn 2848 is recorded separately because its full test module had the same 22 extra failures in both controls.
+- The third batch ran both controls on 20 new Lite tasks. Eighteen passed the raw-log audit, bringing coverage to 31 of 152. Django 11742 has a grader discrepancy, and SymPy 13773 has 12 additional test exceptions in each control.
 
 ## team_v1 — 2026-11-03
 

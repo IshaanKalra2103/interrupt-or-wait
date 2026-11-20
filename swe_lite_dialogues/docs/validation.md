@@ -7,7 +7,7 @@ This is the first team handoff of `basic_v34`, not an all-task runtime certifica
 | Construction | All 300 originals attempted; 152 selected and 148 not selected. Historical author checks rebuilt the selected export and retained original scoring rows. |
 | Handoff checks | File hashes, record identities, final annotation sets, scripted delivery, and scoring-input preparation are checked offline by `verify_release.py`. |
 | Program tests | Fixed fixtures exercise generation review stops, category handling, delivery isolation, and scoring denominators. No model or Docker calls. |
-| Author runtime | 13 of 152 tasks have verified base/gold controls across all 10 source repositories. One additional task has extra failures in both controls. The remaining 138 await runs. |
+| Author runtime | 31 of 152 tasks have verified base/gold controls across all 10 source repositories. Three additional tasks have documented exceptions. The remaining 118 await runs. |
 | Real agent experiments | No general solver adapter or new model scores are included. Scripted delivery and gold-patch tests are not agent success rates. |
 | Intermediate stages | No dataset-wide intermediate score or per-stage gold requirement. Final scoring uses the original task tests. |
 
@@ -46,9 +46,32 @@ We selected one task from each of the five repositories that still lacked a veri
 | Planned | scikit-learn__scikit-learn-13779 | 0/2 | 2/2 | 18/18 | 0 |
 | Follow-up | mwaskom__seaborn-3190 | 0/1 | 1/1 | 84/84 | 0 |
 
-For seaborn 2848 the official grader marked the reference patch resolved. The full test module still failed the same 22 unscored tests on both the base and the reference patch. In the official image, 21 failures referenced the missing pandas 2.0.0 option `mode.use_inf_as_null` and one came from `pytest.warns(None)` on pytest 8.3.3. This task is tracked separately from the 13 verified environments.
+For seaborn 2848 the official grader marked the reference patch resolved. The full test module still failed the same 22 unscored tests on both the base and the reference patch. In the official image, 21 failures referenced the missing pandas 2.0.0 option `mode.use_inf_as_null` and one came from `pytest.warns(None)` on pytest 8.3.3. The evaluation configuration records this task under `runtime_caveats`.
 
 The follow-up used the lowest remaining seaborn task ID, 3190. Both controls also reported one expected failure outside the scoring lists. All 12 Docker evaluations retained their original test lists and made zero solver calls. [Second-batch results and log hashes](lite-environment-2026-11-19-batch2.json)
+
+### Third November 19 batch
+
+We fixed 20 previously unrun IDs before evaluation, covering all nine repositories with remaining tasks, four update types and both conversation lengths. Eleven tasks had two messages and nine had three. Each ran on the base code and with the reference patch in its official amd64 image.
+
+| Repository | Verified task numbers | Tasks with a caveat |
+|---|---|---|
+| Astropy | 14365, 14995 | — |
+| Django | 13220, 13401, 14787, 16229 | 11742 |
+| Matplotlib | 22835, 25433 | — |
+| seaborn | 3407 | — |
+| Pylint | 7993 | — |
+| pytest | 5692, 7432 | — |
+| scikit-learn | 14983, 25500 | — |
+| Sphinx | 8435 | — |
+| SymPy | 15346, 17655, 18189 | 13773 |
+
+Across all 20 tasks, reference patches passed 27/27 named targets. Both controls passed 965/965 named regressions. The official grader counted 0/27 target passes on the base code. The original logs showed 1/27.
+
+- **Django 11742.** The base runner reported two failing subtests from one method. The other target method passed on the same output line. Running each method separately in the pinned image confirmed 1/2 passing on base and 2/2 on the reference patch. The official base report records 0/2.
+- **SymPy 13773.** The named target went from 0/1 to 1/1 and the 69 named regressions passed in both controls. Twelve other tests raised the same `DeprecationWarning` about importing from `collections` on both runs. The base target also raised that warning.
+
+The machine-readable record includes per-task official and raw counts, module summaries, image digests, log hashes and the exit codes from the four individual Django checks. This batch made zero solver calls. [Third-batch results and log hashes](lite-environment-2026-11-19-batch3.json)
 
 Known limits are retained:
 

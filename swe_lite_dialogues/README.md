@@ -14,7 +14,7 @@ This is a **team preview**, ready for inspecting the data and integrating an eva
 | Three-message share | 61.2% |
 | Cumulative / Clarification / Revision / Mixed | 12 / 36 / 18 / 86 |
 | Repositories represented | 10 |
-| Author base/gold environment checks | 13 verified across all 10 repositories, 1 with extra test failures, 138 awaiting runs |
+| Author base/gold environment checks | 31 verified across all 10 repositories, 3 with documented exceptions, 118 awaiting runs |
 
 The other 148 originals were not admitted to this preview. They are not extra samples or silently counted as successes. See [validation and limitations](docs/validation.md).
 

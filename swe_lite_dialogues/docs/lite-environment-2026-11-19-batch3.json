@@ -1,0 +1,1087 @@
+{
+  "dataset": "basic_v34",
+  "date": "2026-11-19",
+  "harness": "swebench==4.1.0",
+  "platform": "linux/amd64",
+  "selection": "Third November 19 Lite author-environment batch. Twenty distinct, previously unrun original tasks. Final-task official base and reference controls, no solver calls.",
+  "selection_rule": "IDs fixed before execution. Purposive coverage of all nine repositories with unrun originals, both dialogue lengths and all four update types, with five Django and four SymPy tasks. The single xarray task already had runtime evidence.",
+  "base_control": "An unused text-file addition exercises unmodified production sources without triggering the official skip for an empty prediction.",
+  "solver_calls": 0,
+  "source_sha256": "25636a49549c7970a844106355023b3e1b5ead3a4aa4ee84b191e30fc8f20365",
+  "candidates_sha256": "5032cbd80599de8b50e74c21223ce9f7e26168ff5996f7f4298ca2355e1b239f",
+  "initial_audit_sha256": "d7d6cbc953857bd4a12e33e6c82cf78c19f80de3e5c1a7cb2d94580a166cc53a",
+  "selection_sha256": "13230cfd8ad296960719c24b61864f698fb241029ecb34691e8b1061c0ffaeda",
+  "tasks": [
+    {
+      "instance_id": "astropy__astropy-14365",
+      "category": "clarification",
+      "messages": 2,
+      "base_commit": "7269fa3e33e8d02485a647da91a5a2a60a06af61",
+      "image_digest": "swebench/sweb.eval.x86_64.astropy_1776_astropy-14365@sha256:70da5c0d4fcbbc2cbc46bbccf8d9ac2dfd4453cf7a19f9fa150b30bb7346f2f4",
+      "base": {
+        "run_id": "split-full-ab0131d28e57",
+        "report_sha256": "8ed67fd48bf8a95ae8b52d8494f988fdf19cf2e27b37c5d832bf2a4ad75f6136",
+        "log_sha256": "aeb00230e70105d3fe6348bfbd860469b7ec0d550e8d4a01f89b5f584cd8c1b7",
+        "target": {
+          "passed": 0,
+          "total": 1,
+          "raw_passed": 0
+        },
+        "regression": {
+          "passed": 8,
+          "total": 8,
+          "raw_passed": 8
+        },
+        "official_resolved": false,
+        "runner_summary": "========================= 1 failed, 8 passed in 0.08s ==========================",
+        "module_failures": 1,
+        "failures_outside_named_tests": 0,
+        "unresolved_named": 0,
+        "official_raw_disagreements": 0
+      },
+      "gold": {
+        "run_id": "split-full-a61b4bdb841c",
+        "report_sha256": "384349816e04aed81c4cb27054fca285b6f2707d23741b1303311206f2d7c777",
+        "log_sha256": "7ab4e05e70853e8c838a5ffee05a9f76f886e50640504e45c1ebf6e4ac74fac6",
+        "target": {
+          "passed": 1,
+          "total": 1,
+          "raw_passed": 1
+        },
+        "regression": {
+          "passed": 8,
+          "total": 8,
+          "raw_passed": 8
+        },
+        "official_resolved": true,
+        "runner_summary": "============================== 9 passed in 0.11s ===============================",
+        "module_failures": 0,
+        "failures_outside_named_tests": 0,
+        "unresolved_named": 0,
+        "official_raw_disagreements": 0
+      },
+      "status": "validated",
+      "same_extra_failures_in_both_controls": true
+    },
+    {
+      "instance_id": "astropy__astropy-14995",
+      "category": "mixed",
+      "messages": 3,
+      "base_commit": "b16c7d12ccbc7b2d20364b89fb44285bcbfede54",
+      "image_digest": "swebench/sweb.eval.x86_64.astropy_1776_astropy-14995@sha256:e1c746371f8f7132c29768bea9cc1380871c87f6e4404a2282d8d3c582786874",
+      "base": {
+        "run_id": "split-full-ab0131d28e57",
+        "report_sha256": "8270434fcd644326326868ca0eb584dd5e8b6877a9887e3c2b2c144517786e72",
+        "log_sha256": "919831075f04928dcc42c8bd1fe3abe9599d194e682be6e1ef3f7eb5206e094c",
+        "target": {
+          "passed": 0,
+          "total": 1,
+          "raw_passed": 0
+        },
+        "regression": {
+          "passed": 179,
+          "total": 179,
+          "raw_passed": 179
+        },
+        "official_resolved": false,
+        "runner_summary": "======================== 1 failed, 179 passed in 0.51s =========================",
+        "module_failures": 1,
+        "failures_outside_named_tests": 0,
+        "unresolved_named": 0,
+        "official_raw_disagreements": 0
+      },
+      "gold": {
+        "run_id": "split-full-a61b4bdb841c",
+        "report_sha256": "408f2193940e31411fa4dc6063fe3d91f5a687f9c5df3f2c5f31a12eb392979b",
+        "log_sha256": "812593c154529f2bc11e1570d325e4a164df2011024de18770b2cef09d12350c",
+        "target": {
+          "passed": 1,
+          "total": 1,
+          "raw_passed": 1
+        },
+        "regression": {
+          "passed": 179,
+          "total": 179,
+          "raw_passed": 179
+        },
+        "official_resolved": true,
+        "runner_summary": "============================= 180 passed in 0.43s ==============================",
+        "module_failures": 0,
+        "failures_outside_named_tests": 0,
+        "unresolved_named": 0,
+        "official_raw_disagreements": 0
+      },
+      "status": "validated",
+      "same_extra_failures_in_both_controls": true
+    },
+    {
+      "instance_id": "django__django-11742",
+      "category": "mixed",
+      "messages": 3,
+      "base_commit": "fee75d2aed4e58ada6567c464cfd22e89dc65f4a",
+      "image_digest": "swebench/sweb.eval.x86_64.django_1776_django-11742@sha256:64c26c94843c2885714c57bfe0a98849be19cebea3fee7b6f54394554a98a8a5",
+      "base": {
+        "run_id": "split-full-ab0131d28e57",
+        "report_sha256": "dcb51b66d385eccc03fd19eb03354eea8c2059c4f4caf0f1e45ac044b6354805",
+        "log_sha256": "05f2b9016a946e448ec456e4cecc166e53536642ccb489ae798bfc4ed530cc34",
+        "target": {
+          "passed": 0,
+          "total": 2,
+          "raw_passed": 1
+        },
+        "regression": {
+          "passed": 43,
+          "total": 43,
+          "raw_passed": 43
+        },
+        "official_resolved": false,
+        "runner_summary": "FAILED (failures=2, skipped=2)",
+        "module_failures": 2,
+        "failures_outside_named_tests": 0,
+        "unresolved_named": 0,
+        "official_raw_disagreements": 1
+      },
+      "gold": {
+        "run_id": "split-full-a61b4bdb841c",
+        "report_sha256": "2de3ecef11f091b167faddfadcd302a1e0c910e24fdfe3059f77bd029afb54af",
+        "log_sha256": "0be2384d456d817572bf65afa85a274f73df532011513ef493c3e077581c6da6",
+        "target": {
+          "passed": 2,
+          "total": 2,
+          "raw_passed": 2
+        },
+        "regression": {
+          "passed": 43,
+          "total": 43,
+          "raw_passed": 43
+        },
+        "official_resolved": true,
+        "runner_summary": "OK (skipped=2)",
+        "module_failures": 0,
+        "failures_outside_named_tests": 0,
+        "unresolved_named": 0,
+        "official_raw_disagreements": 0
+      },
+      "status": "official_raw_disagreement",
+      "same_extra_failures_in_both_controls": true,
+      "individual_target_rerun": {
+        "order": "original FAIL_TO_PASS list",
+        "summary_sha256": "ec98082dfb588f78e6608e5c259f5ae7fd2e90cad2dabdfdea9b6efcaf59aa0d",
+        "base_exit_codes": [
+          1,
+          0
+        ],
+        "gold_exit_codes": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "instance_id": "django__django-13220",
+      "category": "cumulative",
+      "messages": 2,
+      "base_commit": "16218c20606d8cd89c5393970c83da04598a3e04",
+      "image_digest": "swebench/sweb.eval.x86_64.django_1776_django-13220@sha256:af8ad26c52a4104afbb44c606682e29248702f47eb00e8d176b187f3753a1293",
+      "base": {
+        "run_id": "split-full-ab0131d28e57",
+        "report_sha256": "5a5810109be76f65d4b00107ecaece23b3ad3095c6463a325f416423f930275c",
+        "log_sha256": "c2d1b14d4f58667855ef60a7d005e40a3d386683306bc669b06176b449ddf4d6",
+        "target": {
+          "passed": 0,
+          "total": 4,
+          "raw_passed": 0
+        },
+        "regression": {
+          "passed": 1,
+          "total": 1,
+          "raw_passed": 1
+        },
+        "official_resolved": false,
+        "runner_summary": "FAILED (failures=4)",
+        "module_failures": 4,
+        "failures_outside_named_tests": 0,
+        "unresolved_named": 0,
+        "official_raw_disagreements": 0
+      },
+      "gold": {
+        "run_id": "split-full-a61b4bdb841c",
+        "report_sha256": "88b4355138a291882e6697d9d2e40887d13ac14eeb4cab92fbb05397f51925db",
+        "log_sha256": "fd994a7ceef640319204b550a0b20bc1d7d1689878e610b7708f8b59efd1c829",
+        "target": {
+          "passed": 4,
+          "total": 4,
+          "raw_passed": 4
+        },
+        "regression": {
+          "passed": 1,
+          "total": 1,
+          "raw_passed": 1
+        },
+        "official_resolved": true,
+        "runner_summary": "OK",
+        "module_failures": 0,
+        "failures_outside_named_tests": 0,
+        "unresolved_named": 0,
+        "official_raw_disagreements": 0
+      },
+      "status": "validated",
+      "same_extra_failures_in_both_controls": true
+    },
+    {
+      "instance_id": "django__django-13401",
+      "category": "cumulative",
+      "messages": 3,
+      "base_commit": "453967477e3ddae704cd739eac2449c0e13d464c",
+      "image_digest": "swebench/sweb.eval.x86_64.django_1776_django-13401@sha256:9c0e1dba61d9382534caa48011231df377f6f313428e689b70ae13b3a48675b2",
+      "base": {
+        "run_id": "split-full-ab0131d28e57",
+        "report_sha256": "c863502bfbd478bf71db35af6b9001495cedc72d7804f1430f5bdfe9ae57d17a",
+        "log_sha256": "5e64b2dce13b2f49c9adb7475df27543ad59ce37f0b346227ad61ec68d79477b",
+        "target": {
+          "passed": 0,
+          "total": 1,
+          "raw_passed": 0
+        },
+        "regression": {
+          "passed": 32,
+          "total": 32,
+          "raw_passed": 32
+        },
+        "official_resolved": false,
+        "runner_summary": "FAILED (failures=1)",
+        "module_failures": 1,
+        "failures_outside_named_tests": 0,
+        "unresolved_named": 0,
+        "official_raw_disagreements": 0
+      },
+      "gold": {
+        "run_id": "split-full-a61b4bdb841c",
+        "report_sha256": "55adbbe2a2d59e34b15c3ef92ded67e71fe8ccda5d76ca42e56b08b093b29783",
+        "log_sha256": "af303b8ba1c69ec47f96a117c9d01fdb46b42806ca166cf734f98358bf42adb5",
+        "target": {
+          "passed": 1,
+          "total": 1,
+          "raw_passed": 1
+        },
+        "regression": {
+          "passed": 32,
+          "total": 32,
+          "raw_passed": 32
+        },
+        "official_resolved": true,
+        "runner_summary": "OK",
+        "module_failures": 0,
+        "failures_outside_named_tests": 0,
+        "unresolved_named": 0,
+        "official_raw_disagreements": 0
+      },
+      "status": "validated",
+      "same_extra_failures_in_both_controls": true
+    },
+    {
+      "instance_id": "django__django-14787",
+      "category": "revision",
+      "messages": 2,
+      "base_commit": "004b4620f6f4ad87261e149898940f2dcd5757ef",
+      "image_digest": "swebench/sweb.eval.x86_64.django_1776_django-14787@sha256:036744f84b6f7323ef6c4cd39aac71778ef8d0ac44ce961cbe19277e529e6626",
+      "base": {
+        "run_id": "split-full-ab0131d28e57",
+        "report_sha256": "36438d1011eea8592472e5161dbbd49a7ec02c7029a05bdb562395f29426d18e",
+        "log_sha256": "fcb786ebd833d4b65cbfb7460d342274802ba05c97274eb88180cfade7de4392",
+        "target": {
+          "passed": 0,
+          "total": 1,
+          "raw_passed": 0
+        },
+        "regression": {
+          "passed": 20,
+          "total": 20,
+          "raw_passed": 20
+        },
+        "official_resolved": false,
+        "runner_summary": "FAILED (failures=1)",
+        "module_failures": 1,
+        "failures_outside_named_tests": 0,
+        "unresolved_named": 0,
+        "official_raw_disagreements": 0
+      },
+      "gold": {
+        "run_id": "split-full-a61b4bdb841c",
+        "report_sha256": "60878c30f0745cf5ec0d9cbe9d0bad9a306d11a17d4cc46f6ea103b5e12aff3c",
+        "log_sha256": "7df47031e054e5d8ba9bf1230acd2606b141f58a0e2d9e3eaf5ed0e4dad06007",
+        "target": {
+          "passed": 1,
+          "total": 1,
+          "raw_passed": 1
+        },
+        "regression": {
+          "passed": 20,
+          "total": 20,
+          "raw_passed": 20
+        },
+        "official_resolved": true,
+        "runner_summary": "OK",
+        "module_failures": 0,
+        "failures_outside_named_tests": 0,
+        "unresolved_named": 0,
+        "official_raw_disagreements": 0
+      },
+      "status": "validated",
+      "same_extra_failures_in_both_controls": true
+    },
+    {
+      "instance_id": "django__django-16229",
+      "category": "mixed",
+      "messages": 3,
+      "base_commit": "04b15022e8d1f49af69d8a1e6cd678f31f1280ff",
+      "image_digest": "swebench/sweb.eval.x86_64.django_1776_django-16229@sha256:9883b126e9ea6b24aeb30e04893fc0588edee83e88392637b811db109eab0547",
+      "base": {
+        "run_id": "split-full-ab0131d28e57",
+        "report_sha256": "bca92f48d0c5b7960fbebfab6b85a7cebce76db3eb6b7e335e6f6454f6a8469c",
+        "log_sha256": "6fd57e9fc2e966852b86c827961b3448ded9fb2d24f4a3300f49a6d135401ed3",
+        "target": {
+          "passed": 0,
+          "total": 1,
+          "raw_passed": 0
+        },
+        "regression": {
+          "passed": 21,
+          "total": 21,
+          "raw_passed": 21
+        },
+        "official_resolved": false,
+        "runner_summary": "FAILED (failures=1)",
+        "module_failures": 1,
+        "failures_outside_named_tests": 0,
+        "unresolved_named": 0,
+        "official_raw_disagreements": 0
+      },
+      "gold": {
+        "run_id": "split-full-a61b4bdb841c",
+        "report_sha256": "0e4d881b45372537e65b52cf83628c9b7df3e245683ba8d499df2ed2da84dff8",
+        "log_sha256": "8a60802bd961d3ed55ac998806bceae8f4dfac6377c13b6cc252c74250b96524",
+        "target": {
+          "passed": 1,
+          "total": 1,
+          "raw_passed": 1
+        },
+        "regression": {
+          "passed": 21,
+          "total": 21,
+          "raw_passed": 21
+        },
+        "official_resolved": true,
+        "runner_summary": "OK",
+        "module_failures": 0,
+        "failures_outside_named_tests": 0,
+        "unresolved_named": 0,
+        "official_raw_disagreements": 0
+      },
+      "status": "validated",
+      "same_extra_failures_in_both_controls": true
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-22835",
+      "category": "clarification",
+      "messages": 2,
+      "base_commit": "c33557d120eefe3148ebfcf2e758ff2357966000",
+      "image_digest": "swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-22835@sha256:ffe240330bab2ef382e4aba3e09fd624dccef459312defe3c815a58c4a0edd47",
+      "base": {
+        "run_id": "split-full-ab0131d28e57",
+        "report_sha256": "f7c1b785dd8a3e939ca1284339e6c1201f49873b1dc19c304b4eb6a5b9113e22",
+        "log_sha256": "1f58238a8316069b70dd987ef10efd74a815333411e27aec49e5defae4025ad0",
+        "target": {
+          "passed": 0,
+          "total": 1,
+          "raw_passed": 0
+        },
+        "regression": {
+          "passed": 24,
+          "total": 24,
+          "raw_passed": 24
+        },
+        "official_resolved": false,
+        "runner_summary": "=================== 1 failed, 26 passed, 2 skipped in 2.59s ====================",
+        "module_failures": 1,
+        "failures_outside_named_tests": 0,
+        "unresolved_named": 0,
+        "official_raw_disagreements": 0
+      },
+      "gold": {
+        "run_id": "split-full-a61b4bdb841c",
+        "report_sha256": "0a5f7f62f29b3a300f9a424f2886f8a67cbff6d53436e9c3decba34651ab5ac4",
+        "log_sha256": "17b5972d95076c10dd4cd0db83c00835c219cde9e6cef69ddd815f7a64dd53df",
+        "target": {
+          "passed": 1,
+          "total": 1,
+          "raw_passed": 1
+        },
+        "regression": {
+          "passed": 24,
+          "total": 24,
+          "raw_passed": 24
+        },
+        "official_resolved": true,
+        "runner_summary": "======================== 27 passed, 2 skipped in 2.47s =========================",
+        "module_failures": 0,
+        "failures_outside_named_tests": 0,
+        "unresolved_named": 0,
+        "official_raw_disagreements": 0
+      },
+      "status": "validated",
+      "same_extra_failures_in_both_controls": true
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-25433",
+      "category": "mixed",
+      "messages": 3,
+      "base_commit": "7eafdd8af3c523c1c77b027d378fb337dd489f18",
+      "image_digest": "swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-25433@sha256:5feb21fe4c80bd1045f6a0605abde486bd54fc041976fe05123ba2e19da97dcd",
+      "base": {
+        "run_id": "split-full-ab0131d28e57",
+        "report_sha256": "40a4f609d6206b69a0c11b984e057a00beac2c0ba20f7a09f705ca8a6531a0d9",
+        "log_sha256": "167850240244f1a734a6e74204a635ed0cadb76d4af536e2c43b792daf0fa14e",
+        "target": {
+          "passed": 0,
+          "total": 1,
+          "raw_passed": 0
+        },
+        "regression": {
+          "passed": 55,
+          "total": 55,
+          "raw_passed": 55
+        },
+        "official_resolved": false,
+        "runner_summary": "========================= 1 failed, 55 passed in 5.76s =========================",
+        "module_failures": 1,
+        "failures_outside_named_tests": 0,
+        "unresolved_named": 0,
+        "official_raw_disagreements": 0
+      },
+      "gold": {
+        "run_id": "split-full-a61b4bdb841c",
+        "report_sha256": "138cbc2cca97baef8e9a232eee372ed1b9b8f27996438f6bf404e9d473826428",
+        "log_sha256": "d25f8cba58d5b73dc4b69039662b943e0ee1d076155c8d5675fd9ef6fd6db11e",
+        "target": {
+          "passed": 1,
+          "total": 1,
+          "raw_passed": 1
+        },
+        "regression": {
+          "passed": 55,
+          "total": 55,
+          "raw_passed": 55
+        },
+        "official_resolved": true,
+        "runner_summary": "============================== 56 passed in 5.44s ==============================",
+        "module_failures": 0,
+        "failures_outside_named_tests": 0,
+        "unresolved_named": 0,
+        "official_raw_disagreements": 0
+      },
+      "status": "validated",
+      "same_extra_failures_in_both_controls": true
+    },
+    {
+      "instance_id": "mwaskom__seaborn-3407",
+      "category": "clarification",
+      "messages": 2,
+      "base_commit": "515286e02be3e4c0ff2ef4addb34a53c4a676ee4",
+      "image_digest": "swebench/sweb.eval.x86_64.mwaskom_1776_seaborn-3407@sha256:bd81f082cba400f12fc48d9e93a8a9c1a5323fa84caa57ebb7469f3fe1ffa8d1",
+      "base": {
+        "run_id": "split-full-ab0131d28e57",
+        "report_sha256": "3a5d86019d944fc1d355b7fdbf4d50328974c8064a4fc26bba1f99cfe0082889",
+        "log_sha256": "c26ec29a49fc17ea2efb36e4ad02f8bc6b8fab2b119c7a9d925f4caabc8d5e08",
+        "target": {
+          "passed": 0,
+          "total": 1,
+          "raw_passed": 0
+        },
+        "regression": {
+          "passed": 120,
+          "total": 120,
+          "raw_passed": 120
+        },
+        "official_resolved": false,
+        "runner_summary": "================= 1 failed, 120 passed, 42 warnings in 38.61s ==================",
+        "module_failures": 1,
+        "failures_outside_named_tests": 0,
+        "unresolved_named": 0,
+        "official_raw_disagreements": 0
+      },
+      "gold": {
+        "run_id": "split-full-a61b4bdb841c",
+        "report_sha256": "aa9fa2bcd2fb0111c22dbbf0aaf1fcd6915868903e36a42c77a6f9d81a43408e",
+        "log_sha256": "17eda5f4013641c9bf2015c595cc6572062fd22ec3592e322a388fbc316c7fae",
+        "target": {
+          "passed": 1,
+          "total": 1,
+          "raw_passed": 1
+        },
+        "regression": {
+          "passed": 120,
+          "total": 120,
+          "raw_passed": 120
+        },
+        "official_resolved": true,
+        "runner_summary": "====================== 121 passed, 43 warnings in 38.49s =======================",
+        "module_failures": 0,
+        "failures_outside_named_tests": 0,
+        "unresolved_named": 0,
+        "official_raw_disagreements": 0
+      },
+      "status": "validated",
+      "same_extra_failures_in_both_controls": true
+    },
+    {
+      "instance_id": "pylint-dev__pylint-7993",
+      "category": "clarification",
+      "messages": 2,
+      "base_commit": "e90702074e68e20dc8e5df5013ee3ecf22139c3e",
+      "image_digest": "swebench/sweb.eval.x86_64.pylint-dev_1776_pylint-7993@sha256:1a89517dea5a3371295b65dd312102c4782472586158ce82b65449100c55f8a4",
+      "base": {
+        "run_id": "split-full-ab0131d28e57",
+        "report_sha256": "ddf8a742b0a2fd542f1ededea6b403ddb51c147e7e3001d1a81bc78fa3a0ae69",
+        "log_sha256": "db3ce540ddbc5df945594a75c845a9a89f9622f0fda7a9a6a7a87a60221992fa",
+        "target": {
+          "passed": 0,
+          "total": 1,
+          "raw_passed": 0
+        },
+        "regression": {
+          "passed": 10,
+          "total": 10,
+          "raw_passed": 10
+        },
+        "official_resolved": false,
+        "runner_summary": "=================== 1 failed, 10 passed, 1 warning in 0.13s ====================",
+        "module_failures": 1,
+        "failures_outside_named_tests": 0,
+        "unresolved_named": 0,
+        "official_raw_disagreements": 0
+      },
+      "gold": {
+        "run_id": "split-full-a61b4bdb841c",
+        "report_sha256": "515a60e68367ee9007481595880353da38166baf3b962a74e5c12f8d3b6463d7",
+        "log_sha256": "3935fa5086f10c6a59668ddc646a9eb4074f57698fe7713e4b5833c28f230f14",
+        "target": {
+          "passed": 1,
+          "total": 1,
+          "raw_passed": 1
+        },
+        "regression": {
+          "passed": 10,
+          "total": 10,
+          "raw_passed": 10
+        },
+        "official_resolved": true,
+        "runner_summary": "============================== 11 passed in 0.12s ==============================",
+        "module_failures": 0,
+        "failures_outside_named_tests": 0,
+        "unresolved_named": 0,
+        "official_raw_disagreements": 0
+      },
+      "status": "validated",
+      "same_extra_failures_in_both_controls": true
+    },
+    {
+      "instance_id": "pytest-dev__pytest-5692",
+      "category": "cumulative",
+      "messages": 2,
+      "base_commit": "29e336bd9bf87eaef8e2683196ee1975f1ad4088",
+      "image_digest": "swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-5692@sha256:5b0e6b914a49855cc4e4de597800c95e40c7991fb76313862a7b2b4ca6ec9a00",
+      "base": {
+        "run_id": "split-full-ab0131d28e57",
+        "report_sha256": "edcaaddecd8a13f0416539f5ffea0c9f638521bf2e3b9b8f5a550eb73043dd35",
+        "log_sha256": "485aa0b9eb2b4c9e27e0745eea171f34712d7bb20109bbedecf03cffdc33d058",
+        "target": {
+          "passed": 0,
+          "total": 2,
+          "raw_passed": 0
+        },
+        "regression": {
+          "passed": 68,
+          "total": 68,
+          "raw_passed": 68
+        },
+        "official_resolved": false,
+        "runner_summary": "========== 2 failed, 68 passed, 1 skipped, 1 xfailed in 1.18 seconds ===========",
+        "module_failures": 2,
+        "failures_outside_named_tests": 0,
+        "unresolved_named": 0,
+        "official_raw_disagreements": 0
+      },
+      "gold": {
+        "run_id": "split-full-a61b4bdb841c",
+        "report_sha256": "5572f22404e4ee5e9993fa78d1a3c7efc7ecb28d2a00b145e745c94b4e6d029e",
+        "log_sha256": "5244d456ac89f8896ed6afddb5e3e6b570f8967867a503c8ad0c663d2a8e5ab1",
+        "target": {
+          "passed": 2,
+          "total": 2,
+          "raw_passed": 2
+        },
+        "regression": {
+          "passed": 68,
+          "total": 68,
+          "raw_passed": 68
+        },
+        "official_resolved": true,
+        "runner_summary": "=============== 70 passed, 1 skipped, 1 xfailed in 1.22 seconds ================",
+        "module_failures": 0,
+        "failures_outside_named_tests": 0,
+        "unresolved_named": 0,
+        "official_raw_disagreements": 0
+      },
+      "status": "validated",
+      "same_extra_failures_in_both_controls": true
+    },
+    {
+      "instance_id": "pytest-dev__pytest-7432",
+      "category": "clarification",
+      "messages": 3,
+      "base_commit": "e6e300e729dd33956e5448d8be9a0b1540b4e53a",
+      "image_digest": "swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-7432@sha256:5ec7065f9477542610ea5137247539d8f1c9762112803b0690d5ccb2e64d2f07",
+      "base": {
+        "run_id": "split-full-ab0131d28e57",
+        "report_sha256": "4bcd718eb463f92724fe3578cb469752636157387dfa807b5577864ab9a80df0",
+        "log_sha256": "64868c3b8a487db183d7c25bdbcd3228ecab4b49305781932b6beb41487db308",
+        "target": {
+          "passed": 0,
+          "total": 1,
+          "raw_passed": 0
+        },
+        "regression": {
+          "passed": 77,
+          "total": 77,
+          "raw_passed": 77
+        },
+        "official_resolved": false,
+        "runner_summary": "========================= 1 failed, 78 passed in 1.09s =========================",
+        "module_failures": 1,
+        "failures_outside_named_tests": 0,
+        "unresolved_named": 0,
+        "official_raw_disagreements": 0
+      },
+      "gold": {
+        "run_id": "split-full-a61b4bdb841c",
+        "report_sha256": "8935050b08c7e11eb60ef21653d0199617f08430d06910e74d1b21fe1707123e",
+        "log_sha256": "931b1156afcdb42d95e73e0d0a9c822abb36d07f07bd73159f0c2c73dce6cc2d",
+        "target": {
+          "passed": 1,
+          "total": 1,
+          "raw_passed": 1
+        },
+        "regression": {
+          "passed": 77,
+          "total": 77,
+          "raw_passed": 77
+        },
+        "official_resolved": true,
+        "runner_summary": "============================== 79 passed in 1.16s ==============================",
+        "module_failures": 0,
+        "failures_outside_named_tests": 0,
+        "unresolved_named": 0,
+        "official_raw_disagreements": 0
+      },
+      "status": "validated",
+      "same_extra_failures_in_both_controls": true
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-14983",
+      "category": "clarification",
+      "messages": 3,
+      "base_commit": "06632c0d185128a53c57ccc73b25b6408e90bb89",
+      "image_digest": "swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-14983@sha256:96e1896b74d100457d8d82f3683ea4c6f807235755f89cc61862f0da7f5f5836",
+      "base": {
+        "run_id": "split-full-ab0131d28e57",
+        "report_sha256": "f2d5d35480ffec0b7c652234314de89744542841335145d6ddb4443ff62a706e",
+        "log_sha256": "b9550121b9ae666094cbef5f6e3f9120af4a97e5222045beef25230ce60ba99f",
+        "target": {
+          "passed": 0,
+          "total": 2,
+          "raw_passed": 0
+        },
+        "regression": {
+          "passed": 105,
+          "total": 105,
+          "raw_passed": 105
+        },
+        "official_resolved": false,
+        "runner_summary": "================= 2 failed, 105 passed, 122 warnings in 1.02s ==================",
+        "module_failures": 2,
+        "failures_outside_named_tests": 0,
+        "unresolved_named": 0,
+        "official_raw_disagreements": 0
+      },
+      "gold": {
+        "run_id": "split-full-a61b4bdb841c",
+        "report_sha256": "e3e9e0161e331c5039adaa465783d0a71746dc219c9a7327379b6c096d0b4c7e",
+        "log_sha256": "3d6d40d06ebd749ac96ddb66660611216db9b9918e209c1627f05ed33973cf20",
+        "target": {
+          "passed": 2,
+          "total": 2,
+          "raw_passed": 2
+        },
+        "regression": {
+          "passed": 105,
+          "total": 105,
+          "raw_passed": 105
+        },
+        "official_resolved": true,
+        "runner_summary": "====================== 107 passed, 122 warnings in 1.11s =======================",
+        "module_failures": 0,
+        "failures_outside_named_tests": 0,
+        "unresolved_named": 0,
+        "official_raw_disagreements": 0
+      },
+      "status": "validated",
+      "same_extra_failures_in_both_controls": true
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-25500",
+      "category": "revision",
+      "messages": 2,
+      "base_commit": "4db04923a754b6a2defa1b172f55d492b85d165e",
+      "image_digest": "swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-25500@sha256:df7a2e1ab0044c940c73e9ceb13d28da43ed4a6f2c76135e10e66d1e670e8591",
+      "base": {
+        "run_id": "split-full-ab0131d28e57",
+        "report_sha256": "aae59044d91f8930d522d64c35674497256ff0d85497de5312b1371463fa5548",
+        "log_sha256": "fbfc3cd175d262a4fbf8415c7460ca057ca961a4f63aced34e0a0a446cec4710",
+        "target": {
+          "passed": 0,
+          "total": 1,
+          "raw_passed": 0
+        },
+        "regression": {
+          "passed": 45,
+          "total": 45,
+          "raw_passed": 45
+        },
+        "official_resolved": false,
+        "runner_summary": "========================= 1 failed, 45 passed in 0.29s =========================",
+        "module_failures": 1,
+        "failures_outside_named_tests": 0,
+        "unresolved_named": 0,
+        "official_raw_disagreements": 0
+      },
+      "gold": {
+        "run_id": "split-full-a61b4bdb841c",
+        "report_sha256": "92f982ac29b02d14df6e9724f07bdd25ad7c523430aa5a84971baa42ddb44983",
+        "log_sha256": "1e1d94551cb3334c4a925d4caacd0a0f47e27185c3474b6ef3c08fec1f29f328",
+        "target": {
+          "passed": 1,
+          "total": 1,
+          "raw_passed": 1
+        },
+        "regression": {
+          "passed": 45,
+          "total": 45,
+          "raw_passed": 45
+        },
+        "official_resolved": true,
+        "runner_summary": "============================== 46 passed in 0.28s ==============================",
+        "module_failures": 0,
+        "failures_outside_named_tests": 0,
+        "unresolved_named": 0,
+        "official_raw_disagreements": 0
+      },
+      "status": "validated",
+      "same_extra_failures_in_both_controls": true
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-8435",
+      "category": "cumulative",
+      "messages": 2,
+      "base_commit": "5d8d6275a54f2c5fb72b82383b5712c22d337634",
+      "image_digest": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-8435@sha256:cbac452bf082c557820b78763d145c74780eab9ec7d58bec138e200f3289b772",
+      "base": {
+        "run_id": "split-full-ab0131d28e57",
+        "report_sha256": "9ce239997b68270bd8edb617075cf02f76361d75d3707cf6f36c62700566f5c7",
+        "log_sha256": "4d33be699fb992d230929443d7ff9edf0d525ec9fb653a6f07fc8ccbca349da6",
+        "target": {
+          "passed": 0,
+          "total": 1,
+          "raw_passed": 0
+        },
+        "regression": {
+          "passed": 16,
+          "total": 16,
+          "raw_passed": 16
+        },
+        "official_resolved": false,
+        "runner_summary": "================== 1 failed, 16 passed, 64 warnings in 0.86s ===================",
+        "module_failures": 1,
+        "failures_outside_named_tests": 0,
+        "unresolved_named": 0,
+        "official_raw_disagreements": 0
+      },
+      "gold": {
+        "run_id": "split-full-a61b4bdb841c",
+        "report_sha256": "90328953f550b5eeb1942b1170c798da5f8ebb46ccb4ea3f34e569e764510638",
+        "log_sha256": "142bdb299413f54bcf48901e2bc9f69cd40d3bafba7c6632761d18366b264387",
+        "target": {
+          "passed": 1,
+          "total": 1,
+          "raw_passed": 1
+        },
+        "regression": {
+          "passed": 16,
+          "total": 16,
+          "raw_passed": 16
+        },
+        "official_resolved": true,
+        "runner_summary": "======================= 17 passed, 64 warnings in 0.81s ========================",
+        "module_failures": 0,
+        "failures_outside_named_tests": 0,
+        "unresolved_named": 0,
+        "official_raw_disagreements": 0
+      },
+      "status": "validated",
+      "same_extra_failures_in_both_controls": true
+    },
+    {
+      "instance_id": "sympy__sympy-13773",
+      "category": "revision",
+      "messages": 2,
+      "base_commit": "7121bdf1facdd90d05b6994b4c2e5b2865a4638a",
+      "image_digest": "swebench/sweb.eval.x86_64.sympy_1776_sympy-13773@sha256:be304d53edad108e694710cd6605256c905f0255ff97af932f600d1f226ef692",
+      "base": {
+        "run_id": "split-full-ab0131d28e57",
+        "report_sha256": "8d5d4b21da491bbe3fd6c27fa324b21f39f01a2c7d94801010818794c8ca57c7",
+        "log_sha256": "63e99c47d3bd5d97c3388c240148f332f1ed735a46bd0b98d4d95cb41b20973e",
+        "target": {
+          "passed": 0,
+          "total": 1,
+          "raw_passed": 0
+        },
+        "regression": {
+          "passed": 69,
+          "total": 69,
+          "raw_passed": 69
+        },
+        "official_resolved": false,
+        "runner_summary": "tests finished: 69 passed, 1 expected to fail, 13 exceptions, in 1.67 seconds =",
+        "module_failures": 13,
+        "failures_outside_named_tests": 12,
+        "unresolved_named": 0,
+        "official_raw_disagreements": 0,
+        "collections_deprecation_exceptions": 13,
+        "collections_deprecation_in_named_target": true
+      },
+      "gold": {
+        "run_id": "split-full-a61b4bdb841c",
+        "report_sha256": "0db56724ac2a69e5b8f2c78649ecb636bd370a07200c59563432e8be15808df9",
+        "log_sha256": "3a49c93ecb41dc7c7d44b4a4c28b568450c2493326852aa36e3d82ad0be1ae41",
+        "target": {
+          "passed": 1,
+          "total": 1,
+          "raw_passed": 1
+        },
+        "regression": {
+          "passed": 69,
+          "total": 69,
+          "raw_passed": 69
+        },
+        "official_resolved": true,
+        "runner_summary": "tests finished: 70 passed, 1 expected to fail, 12 exceptions, in 1.64 seconds =",
+        "module_failures": 12,
+        "failures_outside_named_tests": 12,
+        "unresolved_named": 0,
+        "official_raw_disagreements": 0,
+        "collections_deprecation_exceptions": 12,
+        "collections_deprecation_in_named_target": false
+      },
+      "status": "named_controls_passed_with_extra_failures",
+      "same_extra_failures_in_both_controls": true
+    },
+    {
+      "instance_id": "sympy__sympy-15346",
+      "category": "cumulative",
+      "messages": 2,
+      "base_commit": "9ef28fba5b4d6d0168237c9c005a550e6dc27d81",
+      "image_digest": "swebench/sweb.eval.x86_64.sympy_1776_sympy-15346@sha256:543331a88d9bae6df0eb50f0167c32b07648dc106d1fd815ed62a0ad5e5fa046",
+      "base": {
+        "run_id": "split-full-ab0131d28e57",
+        "report_sha256": "09c8fe4b6d18c56159400766d5e98e58bf9c6960ab9e8be4d187278240ea39cc",
+        "log_sha256": "f52125152024a7945ee4c4dd67059ddf7b15a3653f262cb7154cde16ff288f5e",
+        "target": {
+          "passed": 0,
+          "total": 1,
+          "raw_passed": 0
+        },
+        "regression": {
+          "passed": 22,
+          "total": 22,
+          "raw_passed": 22
+        },
+        "official_resolved": false,
+        "runner_summary": "== tests finished: 23 passed, 1 failed, 1 expected to fail, in 17.54 seconds ===",
+        "module_failures": 1,
+        "failures_outside_named_tests": 0,
+        "unresolved_named": 0,
+        "official_raw_disagreements": 0
+      },
+      "gold": {
+        "run_id": "split-full-a61b4bdb841c",
+        "report_sha256": "a6cac3fcaeb9932aa4563612bdc460d643a5890d8e839701ff943f12645fcfd8",
+        "log_sha256": "1fc6ccc66da80df4b9b778efc0b51b960e17f2fc7117d6b371f299536878d4e0",
+        "target": {
+          "passed": 1,
+          "total": 1,
+          "raw_passed": 1
+        },
+        "regression": {
+          "passed": 22,
+          "total": 22,
+          "raw_passed": 22
+        },
+        "official_resolved": true,
+        "runner_summary": "======= tests finished: 24 passed, 1 expected to fail, in 18.91 seconds ========",
+        "module_failures": 0,
+        "failures_outside_named_tests": 0,
+        "unresolved_named": 0,
+        "official_raw_disagreements": 0
+      },
+      "status": "validated",
+      "same_extra_failures_in_both_controls": true
+    },
+    {
+      "instance_id": "sympy__sympy-17655",
+      "category": "mixed",
+      "messages": 3,
+      "base_commit": "f5e965947af2410ded92cfad987aaf45262ea434",
+      "image_digest": "swebench/sweb.eval.x86_64.sympy_1776_sympy-17655@sha256:2c0112dbc185b0d0da1030ceffdb92b7730208caadb2cfbaac8af6ed9fcbddcf",
+      "base": {
+        "run_id": "split-full-ab0131d28e57",
+        "report_sha256": "12f3c0ecd4fa5c39ed5e7b6f215bf44fdbb1b0f7698cb652bb0126d998e20781",
+        "log_sha256": "971846f9087e4548d9e1a25be196e6683c0e3433ba942b2ce3d1740236163dfa",
+        "target": {
+          "passed": 0,
+          "total": 2,
+          "raw_passed": 0
+        },
+        "regression": {
+          "passed": 9,
+          "total": 9,
+          "raw_passed": 9
+        },
+        "official_resolved": false,
+        "runner_summary": "=========== tests finished: 10 passed, 2 exceptions, in 6.70 seconds ===========",
+        "module_failures": 2,
+        "failures_outside_named_tests": 0,
+        "unresolved_named": 0,
+        "official_raw_disagreements": 0
+      },
+      "gold": {
+        "run_id": "split-full-a61b4bdb841c",
+        "report_sha256": "43d44de22452d21611d19b719f73d16c4ec6e77915caefc868ed10a427e39aa5",
+        "log_sha256": "af735b44ef7c800e1efb16db75bce19715b3d57c74f6255adefac4742e5d7843",
+        "target": {
+          "passed": 2,
+          "total": 2,
+          "raw_passed": 2
+        },
+        "regression": {
+          "passed": 9,
+          "total": 9,
+          "raw_passed": 9
+        },
+        "official_resolved": true,
+        "runner_summary": "================== tests finished: 12 passed, in 6.95 seconds ==================",
+        "module_failures": 0,
+        "failures_outside_named_tests": 0,
+        "unresolved_named": 0,
+        "official_raw_disagreements": 0
+      },
+      "status": "validated",
+      "same_extra_failures_in_both_controls": true
+    },
+    {
+      "instance_id": "sympy__sympy-18189",
+      "category": "mixed",
+      "messages": 3,
+      "base_commit": "1923822ddf8265199dbd9ef9ce09641d3fd042b9",
+      "image_digest": "swebench/sweb.eval.x86_64.sympy_1776_sympy-18189@sha256:7f3118533e22d47a19b9784ab86c7b0251cd6fec0acc71f7fe8805809f052724",
+      "base": {
+        "run_id": "split-full-ab0131d28e57",
+        "report_sha256": "9194d5b988fa1ff2318621cce439b1d42ffd183d8a22469f3dc957cc944974b5",
+        "log_sha256": "b7ca710ca834cf341f5b91f97d493afa3d8f23e5baeaed0626779fc3b8263ca1",
+        "target": {
+          "passed": 0,
+          "total": 1,
+          "raw_passed": 0
+        },
+        "regression": {
+          "passed": 41,
+          "total": 41,
+          "raw_passed": 41
+        },
+        "official_resolved": false,
+        "runner_summary": "tests finished: 42 passed, 1 failed, 1 skipped, 2 expected to fail, in 16.78 seconds",
+        "module_failures": 1,
+        "failures_outside_named_tests": 0,
+        "unresolved_named": 0,
+        "official_raw_disagreements": 0
+      },
+      "gold": {
+        "run_id": "split-full-a61b4bdb841c",
+        "report_sha256": "e7f5435e4f2ada26eba6dacfc265078eb885f4d892ddd2bf2624c452bc2f04b9",
+        "log_sha256": "d19c1fafe8d1e119841ce55a8003719811230c3b6d5eb69a791529a2cea72f58",
+        "target": {
+          "passed": 1,
+          "total": 1,
+          "raw_passed": 1
+        },
+        "regression": {
+          "passed": 41,
+          "total": 41,
+          "raw_passed": 41
+        },
+        "official_resolved": true,
+        "runner_summary": "== tests finished: 43 passed, 1 skipped, 2 expected to fail, in 16.60 seconds ==",
+        "module_failures": 0,
+        "failures_outside_named_tests": 0,
+        "unresolved_named": 0,
+        "official_raw_disagreements": 0
+      },
+      "status": "validated",
+      "same_extra_failures_in_both_controls": true
+    }
+  ],
+  "module_details_sha256": "329e28210fcf23c19faa3a7187a81a5791a7be079983d85286934076e70fbb30",
+  "summary": {
+    "attempted": 20,
+    "official_control_runs": 40,
+    "status_counts": {
+      "validated": 18,
+      "official_raw_disagreement": 1,
+      "named_controls_passed_with_extra_failures": 1
+    },
+    "base": {
+      "target": {
+        "passed": 0,
+        "raw_passed": 1,
+        "total": 27
+      },
+      "regression": {
+        "passed": 965,
+        "raw_passed": 965,
+        "total": 965
+      }
+    },
+    "gold": {
+      "target": {
+        "passed": 27,
+        "raw_passed": 27,
+        "total": 27
+      },
+      "regression": {
+        "passed": 965,
+        "raw_passed": 965,
+        "total": 965
+      }
+    }
+  },
+  "source_verification_sha256": "c11a5b14f9622faea8f646c30462e52410c2f14da044b6c721c676937c3c8eeb"
+}

@@ -1,6 +1,6 @@
 {
   "harness_package": "swebench==4.1.0",
-  "compatibility_status": "Official base/gold controls and raw logs verified 13 of 152 Lite tasks across 10 repositories. One further task had extra failures in both controls, and 138 await runs.",
+  "compatibility_status": "Official base/gold controls and raw logs verified 31 of 152 Lite tasks across 10 repositories. Three further tasks have documented exceptions, and 118 await runs.",
   "dataset_format": "Original SWE-bench rows with repo, version, base_commit, test_patch, FAIL_TO_PASS and PASS_TO_PASS.",
   "loader_source": "https://github.com/SWE-bench/SWE-bench/blob/v4.1.0/swebench/harness/utils.py",
   "test_spec_source": "https://github.com/SWE-bench/SWE-bench/blob/v4.1.0/swebench/harness/test_spec/test_spec.py",
@@ -74,6 +74,78 @@
     "mwaskom__seaborn-3190": {
       "evidence": "docs/lite-environment-2026-11-19-batch2.json",
       "agent_experiment_run": false
+    },
+    "astropy__astropy-14365": {
+      "evidence": "docs/lite-environment-2026-11-19-batch3.json",
+      "agent_experiment_run": false
+    },
+    "astropy__astropy-14995": {
+      "evidence": "docs/lite-environment-2026-11-19-batch3.json",
+      "agent_experiment_run": false
+    },
+    "django__django-13220": {
+      "evidence": "docs/lite-environment-2026-11-19-batch3.json",
+      "agent_experiment_run": false
+    },
+    "django__django-13401": {
+      "evidence": "docs/lite-environment-2026-11-19-batch3.json",
+      "agent_experiment_run": false
+    },
+    "django__django-14787": {
+      "evidence": "docs/lite-environment-2026-11-19-batch3.json",
+      "agent_experiment_run": false
+    },
+    "django__django-16229": {
+      "evidence": "docs/lite-environment-2026-11-19-batch3.json",
+      "agent_experiment_run": false
+    },
+    "matplotlib__matplotlib-22835": {
+      "evidence": "docs/lite-environment-2026-11-19-batch3.json",
+      "agent_experiment_run": false
+    },
+    "matplotlib__matplotlib-25433": {
+      "evidence": "docs/lite-environment-2026-11-19-batch3.json",
+      "agent_experiment_run": false
+    },
+    "mwaskom__seaborn-3407": {
+      "evidence": "docs/lite-environment-2026-11-19-batch3.json",
+      "agent_experiment_run": false
+    },
+    "pylint-dev__pylint-7993": {
+      "evidence": "docs/lite-environment-2026-11-19-batch3.json",
+      "agent_experiment_run": false
+    },
+    "pytest-dev__pytest-5692": {
+      "evidence": "docs/lite-environment-2026-11-19-batch3.json",
+      "agent_experiment_run": false
+    },
+    "pytest-dev__pytest-7432": {
+      "evidence": "docs/lite-environment-2026-11-19-batch3.json",
+      "agent_experiment_run": false
+    },
+    "scikit-learn__scikit-learn-14983": {
+      "evidence": "docs/lite-environment-2026-11-19-batch3.json",
+      "agent_experiment_run": false
+    },
+    "scikit-learn__scikit-learn-25500": {
+      "evidence": "docs/lite-environment-2026-11-19-batch3.json",
+      "agent_experiment_run": false
+    },
+    "sphinx-doc__sphinx-8435": {
+      "evidence": "docs/lite-environment-2026-11-19-batch3.json",
+      "agent_experiment_run": false
+    },
+    "sympy__sympy-15346": {
+      "evidence": "docs/lite-environment-2026-11-19-batch3.json",
+      "agent_experiment_run": false
+    },
+    "sympy__sympy-17655": {
+      "evidence": "docs/lite-environment-2026-11-19-batch3.json",
+      "agent_experiment_run": false
+    },
+    "sympy__sympy-18189": {
+      "evidence": "docs/lite-environment-2026-11-19-batch3.json",
+      "agent_experiment_run": false
     }
   },
   "runtime_caveats": {
@@ -82,6 +154,19 @@
       "status": "named_controls_passed_with_extra_failures",
       "extra_failures_in_each_control": 22,
       "agent_experiment_run": false
+    },
+    "django__django-11742": {
+      "evidence": "docs/lite-environment-2026-11-19-batch3.json",
+      "agent_experiment_run": false,
+      "status": "official_raw_disagreement",
+      "base_official_target_passes": 0,
+      "base_individual_target_passes": 1
+    },
+    "sympy__sympy-13773": {
+      "evidence": "docs/lite-environment-2026-11-19-batch3.json",
+      "agent_experiment_run": false,
+      "status": "named_controls_passed_with_extra_failures",
+      "extra_failures_in_each_control": 12
     }
   }
 }

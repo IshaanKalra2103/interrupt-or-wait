@@ -1,6 +1,6 @@
 {
   "harness_package": "swebench==4.1.0",
-  "compatibility_status": "swebench==4.1.0 has run both original controls on 8 of the 152 Lite tasks.",
+  "compatibility_status": "Official base/gold controls and raw logs verified 13 of 152 Lite tasks across 10 repositories. One further task had extra failures in both controls, and 138 await runs.",
   "dataset_format": "Original SWE-bench rows with repo, version, base_commit, test_patch, FAIL_TO_PASS and PASS_TO_PASS.",
   "loader_source": "https://github.com/SWE-bench/SWE-bench/blob/v4.1.0/swebench/harness/utils.py",
   "test_spec_source": "https://github.com/SWE-bench/SWE-bench/blob/v4.1.0/swebench/harness/test_spec/test_spec.py",
@@ -53,6 +53,34 @@
     },
     "sympy__sympy-12481": {
       "evidence": "docs/lite-environment-2026-11-19.json",
+      "agent_experiment_run": false
+    },
+    "matplotlib__matplotlib-26020": {
+      "evidence": "docs/lite-environment-2026-11-19-batch2.json",
+      "agent_experiment_run": false
+    },
+    "pydata__xarray-5131": {
+      "evidence": "docs/lite-environment-2026-11-19-batch2.json",
+      "agent_experiment_run": false
+    },
+    "pylint-dev__pylint-5859": {
+      "evidence": "docs/lite-environment-2026-11-19-batch2.json",
+      "agent_experiment_run": false
+    },
+    "scikit-learn__scikit-learn-13779": {
+      "evidence": "docs/lite-environment-2026-11-19-batch2.json",
+      "agent_experiment_run": false
+    },
+    "mwaskom__seaborn-3190": {
+      "evidence": "docs/lite-environment-2026-11-19-batch2.json",
+      "agent_experiment_run": false
+    }
+  },
+  "runtime_caveats": {
+    "mwaskom__seaborn-2848": {
+      "evidence": "docs/lite-environment-2026-11-19-batch2.json",
+      "status": "named_controls_passed_with_extra_failures",
+      "extra_failures_in_each_control": 22,
       "agent_experiment_run": false
     }
   }

@@ -7,7 +7,7 @@ This is the first team handoff of `basic_v34`, not an all-task runtime certifica
 | Construction | All 300 originals attempted; 152 selected and 148 not selected. Historical author checks rebuilt the selected export and retained original scoring rows. |
 | Handoff checks | File hashes, record identities, final annotation sets, scripted delivery, and scoring-input preparation are checked offline by `verify_release.py`. |
 | Program tests | Fixed fixtures exercise generation review stops, category handling, delivery isolation, and scoring denominators. No model or Docker calls. |
-| Author runtime | Eight of the 152 tasks have base/gold environment checks. The author archive holds the raw logs. |
+| Author runtime | 13 of 152 tasks have verified base/gold controls across all 10 source repositories. One additional task has extra failures in both controls. The remaining 138 await runs. |
 | Real agent experiments | No general solver adapter or new model scores are included. Scripted delivery and gold-patch tests are not agent success rates. |
 | Intermediate stages | No dataset-wide intermediate score or per-stage gold requirement. Final scoring uses the original task tests. |
 
@@ -32,6 +32,23 @@ On November 19, five further Lite tasks were selected for author checks across f
 | sympy__sympy-12481 | 0/1 | 1/1 | 7/7 for both |
 
 The raw logs account for all six named targets and 98 named regressions in both controls. The pytest module also skipped one test outside those lists. SymPy ran one additional passing test. This batch made zero solver calls. Image digests, original revisions, run IDs and log hashes are in the [November 19 runtime record](lite-environment-2026-11-19.json).
+
+### Second November 19 batch
+
+We selected one task from each of the five repositories that still lacked a verified environment and fixed the IDs before running the controls. We then checked one additional seaborn task after the first showed failures outside the official scoring lists.
+
+| Sample | Original | Base targets | Gold targets | Named regressions in each control | Extra failures in each control |
+|---|---|---:|---:|---:|---:|
+| Planned | matplotlib__matplotlib-26020 | 0/1 | 1/1 | 48/48 | 0 |
+| Planned | mwaskom__seaborn-2848 | 0/1 | 1/1 | 50/50 | 22 |
+| Planned | pydata__xarray-5131 | 0/10 | 10/10 | 24/24 | 0 |
+| Planned | pylint-dev__pylint-5859 | 0/1 | 1/1 | 10/10 | 0 |
+| Planned | scikit-learn__scikit-learn-13779 | 0/2 | 2/2 | 18/18 | 0 |
+| Follow-up | mwaskom__seaborn-3190 | 0/1 | 1/1 | 84/84 | 0 |
+
+For seaborn 2848 the official grader marked the reference patch resolved. The full test module still failed the same 22 unscored tests on both the base and the reference patch. In the official image, 21 failures referenced the missing pandas 2.0.0 option `mode.use_inf_as_null` and one came from `pytest.warns(None)` on pytest 8.3.3. This task is tracked separately from the 13 verified environments.
+
+The follow-up used the lowest remaining seaborn task ID, 3190. Both controls also reported one expected failure outside the scoring lists. All 12 Docker evaluations retained their original test lists and made zero solver calls. [Second-batch results and log hashes](lite-environment-2026-11-19-batch2.json)
 
 Known limits are retained:
 

@@ -1,0 +1,339 @@
+{
+  "dataset": "basic_v34",
+  "date": "2026-11-19",
+  "harness": "swebench==4.1.0",
+  "platform": "linux/amd64",
+  "base_control": "An unused text file avoids the official harness skipping an empty prediction. Production sources retain their original contents.",
+  "solver_calls": 0,
+  "candidates_sha256": "5032cbd80599de8b50e74c21223ce9f7e26168ff5996f7f4298ca2355e1b239f",
+  "source_sha256": "25636a49549c7970a844106355023b3e1b5ead3a4aa4ee84b191e30fc8f20365",
+  "scope": "Final-task author controls in official images. Both the fixed sample and the separate follow-up are included.",
+  "batches": [
+    {
+      "batch": "planned",
+      "selection_rule": "One previously unverified task from each of the five repositories still lacking runtime evidence. Task IDs were fixed before either control ran.",
+      "attempted": 5,
+      "validated": 4,
+      "verification_sha256": "9397be04bd4fc488d633e3184d7d2890a05b39346b8578aa0685291d3567668f",
+      "module_details_sha256": "6219b3dce64176044311003c980e5f15a258a9ff59c2a68c112e2ce0ec339e1f"
+    },
+    {
+      "batch": "followup",
+      "selection_rule": "Use the first remaining Seaborn ID in ascending order after the fixed batch, and record both outcomes. This follow-up was selected before its controls ran.",
+      "attempted": 1,
+      "validated": 1,
+      "verification_sha256": "acdcee798ae7dd6ae4bcefb626db70a9183dffd49d0272cb7438d564f7f13252",
+      "module_details_sha256": "9ef11ef5697ec0f4d2ea0c17f8eaeedeed35b339be611fa77b87d2f351d8ec7f"
+    }
+  ],
+  "tasks": [
+    {
+      "instance_id": "matplotlib__matplotlib-26020",
+      "category": "revision",
+      "messages": 2,
+      "base_commit": "f6a781f77f5ddf1204c60ca7c544809407d4a807",
+      "image_digest": "swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-26020@sha256:e095802920d7f6e282832fc436a36699adda9f6da08b86a13058d8393b79246f",
+      "batch": "planned",
+      "base": {
+        "run_id": "split-full-3713d8bf640d",
+        "report_sha256": "fa10fad3f38708a6205a3cacaa8c1cf17229fc43ae05b877206911f3808c5fc6",
+        "log_sha256": "bfc03aacc72ac6a59c626b77795607285760bfd7349aa1323b00c05a72c15ddd",
+        "target": {
+          "passed": 0,
+          "total": 1
+        },
+        "regression": {
+          "passed": 48,
+          "total": 48
+        },
+        "official_resolved": false,
+        "runner_summary": "========================= 1 failed, 48 passed in 3.66s =========================",
+        "module_result_counts": {
+          "FAILED": 1,
+          "PASSED": 48
+        },
+        "failures_outside_named_tests": 0
+      },
+      "gold": {
+        "run_id": "split-full-68bbbed71c88",
+        "report_sha256": "0798721a88b10ecaba15a52f8c69e44e6bf4c09325169c89721a665be2dc6671",
+        "log_sha256": "8be64de264eb6ba215879a418a0a3664f551ffe039a6e68c9dec007a1805d4cc",
+        "target": {
+          "passed": 1,
+          "total": 1
+        },
+        "regression": {
+          "passed": 48,
+          "total": 48
+        },
+        "official_resolved": true,
+        "runner_summary": "============================== 49 passed in 3.64s ==============================",
+        "module_result_counts": {
+          "PASSED": 49
+        },
+        "failures_outside_named_tests": 0
+      },
+      "status": "validated"
+    },
+    {
+      "instance_id": "mwaskom__seaborn-2848",
+      "category": "clarification",
+      "messages": 3,
+      "base_commit": "94621cef29f80282436d73e8d2c0aa76dab81273",
+      "image_digest": "swebench/sweb.eval.x86_64.mwaskom_1776_seaborn-2848@sha256:d719470351e66623e532a4f23cdedfe8fb737147fe108e4b5829aa273528389d",
+      "batch": "planned",
+      "base": {
+        "run_id": "split-full-3713d8bf640d",
+        "report_sha256": "628cd9aa0ed7fc654e027bbe3707d6caeab9f83846621faf629ce416a33f1cc5",
+        "log_sha256": "6f11ad32fba320bdfe95a38e5baa62f968dc3aef7897a895d50430d87c7d2d58",
+        "target": {
+          "passed": 0,
+          "total": 1
+        },
+        "regression": {
+          "passed": 50,
+          "total": 50
+        },
+        "official_resolved": false,
+        "runner_summary": "================= 23 failed, 50 passed, 165 warnings in 12.22s =================",
+        "module_result_counts": {
+          "FAILED": 23,
+          "PASSED": 50
+        },
+        "failures_outside_named_tests": 22
+      },
+      "gold": {
+        "run_id": "split-full-68bbbed71c88",
+        "report_sha256": "1683701ec564c4c76263aed7e89e211ed9b0858420567e8ac93f4c3c40bf79df",
+        "log_sha256": "3f8c898ac956c5b5532b528a6bf50b7ce244144293f95973c543fb811afe2940",
+        "target": {
+          "passed": 1,
+          "total": 1
+        },
+        "regression": {
+          "passed": 50,
+          "total": 50
+        },
+        "official_resolved": true,
+        "runner_summary": "================= 22 failed, 51 passed, 165 warnings in 12.15s =================",
+        "module_result_counts": {
+          "FAILED": 22,
+          "PASSED": 51
+        },
+        "failures_outside_named_tests": 22
+      },
+      "status": "named_controls_passed_with_extra_failures",
+      "background_failures": {
+        "same_test_ids_in_both_controls": true,
+        "image_packages": {
+          "pandas": "2.0.0",
+          "pytest": "8.3.3",
+          "numpy": "1.25.2",
+          "matplotlib": "3.7.2"
+        },
+        "missing_pandas_option": {
+          "count_per_control": 21,
+          "option": "mode.use_inf_as_null"
+        },
+        "pytest_warning_assertion": {
+          "count_per_control": 1,
+          "call": "pytest.warns(None)"
+        }
+      }
+    },
+    {
+      "instance_id": "pydata__xarray-5131",
+      "category": "clarification",
+      "messages": 2,
+      "base_commit": "e56905889c836c736152b11a7e6117a229715975",
+      "image_digest": "swebench/sweb.eval.x86_64.pydata_1776_xarray-5131@sha256:7b6dd2169e0c110950f3dd3e7a76ebc35e1f2d9afc83aaef53766785dfb1234d",
+      "batch": "planned",
+      "base": {
+        "run_id": "split-full-3713d8bf640d",
+        "report_sha256": "c997035a9431a186b29b8d0a04ad81798a15c7de28e777139041215d502c9b9a",
+        "log_sha256": "acfd7908a6b63770c2230baf500b5014540ab1d299ae2de141486d228b29498b",
+        "target": {
+          "passed": 0,
+          "total": 10
+        },
+        "regression": {
+          "passed": 24,
+          "total": 24
+        },
+        "official_resolved": false,
+        "runner_summary": "================= 10 failed, 24 passed, 113 warnings in 2.81s ==================",
+        "module_result_counts": {
+          "FAILED": 10,
+          "PASSED": 24
+        },
+        "failures_outside_named_tests": 0
+      },
+      "gold": {
+        "run_id": "split-full-68bbbed71c88",
+        "report_sha256": "b36b0af21c1c672304a2ea84d9d38b44bc373739765735ac3d10062f9d7a05fe",
+        "log_sha256": "577071352cc6c99d0a919dd7873eeef5be37c03940555ba3133e3ef34224e057",
+        "target": {
+          "passed": 10,
+          "total": 10
+        },
+        "regression": {
+          "passed": 24,
+          "total": 24
+        },
+        "official_resolved": true,
+        "runner_summary": "======================= 34 passed, 113 warnings in 2.44s =======================",
+        "module_result_counts": {
+          "PASSED": 34
+        },
+        "failures_outside_named_tests": 0
+      },
+      "status": "validated"
+    },
+    {
+      "instance_id": "pylint-dev__pylint-5859",
+      "category": "clarification",
+      "messages": 2,
+      "base_commit": "182cc539b8154c0710fcea7e522267e42eba8899",
+      "image_digest": "swebench/sweb.eval.x86_64.pylint-dev_1776_pylint-5859@sha256:12412d9d1d7a06b8fa30dd0ff14ae67177fffee77d1e6ac277606fb7334837cf",
+      "batch": "planned",
+      "base": {
+        "run_id": "split-full-3713d8bf640d",
+        "report_sha256": "2510bdeaff77bfa72f6f69f34ca8ca30324758804664136d359655cd61de0122",
+        "log_sha256": "7b78ed83e28f9d97a47c69ae02ae2ceff163c4a7491a0c5ec0748f43249f4c6c",
+        "target": {
+          "passed": 0,
+          "total": 1
+        },
+        "regression": {
+          "passed": 10,
+          "total": 10
+        },
+        "official_resolved": false,
+        "runner_summary": "=================== 1 failed, 10 passed, 1 warning in 0.05s ====================",
+        "module_result_counts": {
+          "FAILED": 1,
+          "PASSED": 10
+        },
+        "failures_outside_named_tests": 0
+      },
+      "gold": {
+        "run_id": "split-full-68bbbed71c88",
+        "report_sha256": "a8efcff935ee6a3612a45bfb228e271f3c8365313a26f2d069693dfaad119340",
+        "log_sha256": "84d9b4cbc7d5689475573071dc8ec82de02c9e81c7d51c62c65ec5875ab0681b",
+        "target": {
+          "passed": 1,
+          "total": 1
+        },
+        "regression": {
+          "passed": 10,
+          "total": 10
+        },
+        "official_resolved": true,
+        "runner_summary": "======================== 11 passed, 1 warning in 0.02s =========================",
+        "module_result_counts": {
+          "PASSED": 11
+        },
+        "failures_outside_named_tests": 0
+      },
+      "status": "validated"
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-13779",
+      "category": "mixed",
+      "messages": 3,
+      "base_commit": "b34751b7ed02b2cfcc36037fb729d4360480a299",
+      "image_digest": "swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-13779@sha256:f7188477fd1e48e0e9bb1efa8a47068979127e1995fbab4c9eb3b04eaadf0618",
+      "batch": "planned",
+      "base": {
+        "run_id": "split-full-3713d8bf640d",
+        "report_sha256": "4fd48d674f60589573a0232b5baabd23c092045560fe5441e403bb4974e100b3",
+        "log_sha256": "addd6b621cca9e6ded5b1fd4dc8c97dd35abf26600fc702a6422cc18dd1ba8b4",
+        "target": {
+          "passed": 0,
+          "total": 2
+        },
+        "regression": {
+          "passed": 18,
+          "total": 18
+        },
+        "official_resolved": false,
+        "runner_summary": "=================== 2 failed, 18 passed, 1 warning in 1.70s ====================",
+        "module_result_counts": {
+          "FAILED": 2,
+          "PASSED": 18
+        },
+        "failures_outside_named_tests": 0
+      },
+      "gold": {
+        "run_id": "split-full-68bbbed71c88",
+        "report_sha256": "1c1a814e5eee060e4839db888ffb8ae6cc4443ac550836ff4c0ae0cadbede7e0",
+        "log_sha256": "ed084647dea0905a7b7cac089c3813e113db203894947b7f5838823306f9ca01",
+        "target": {
+          "passed": 2,
+          "total": 2
+        },
+        "regression": {
+          "passed": 18,
+          "total": 18
+        },
+        "official_resolved": true,
+        "runner_summary": "======================== 20 passed, 1 warning in 1.69s =========================",
+        "module_result_counts": {
+          "PASSED": 20
+        },
+        "failures_outside_named_tests": 0
+      },
+      "status": "validated"
+    },
+    {
+      "instance_id": "mwaskom__seaborn-3190",
+      "category": "clarification",
+      "messages": 2,
+      "base_commit": "4a9e54962a29c12a8b103d75f838e0e795a6974d",
+      "image_digest": "swebench/sweb.eval.x86_64.mwaskom_1776_seaborn-3190@sha256:5ce876a52439385a2638f21617febf25a333c24b0db555cb9e37230b4db2cdcc",
+      "batch": "followup",
+      "base": {
+        "run_id": "split-full-2f4e43c9228b",
+        "report_sha256": "1b69d4a06e5c60c0f03982b7259357ff862b05b7092ac3a31463ec5637247eb3",
+        "log_sha256": "707f8904b146def32eb16fb7f6cd86ce64ef892c9fd0378f4153b480ce271ddf",
+        "target": {
+          "passed": 0,
+          "total": 1
+        },
+        "regression": {
+          "passed": 84,
+          "total": 84
+        },
+        "official_resolved": false,
+        "runner_summary": "============= 1 failed, 84 passed, 1 xfailed, 2 warnings in 0.98s ==============",
+        "module_result_counts": {
+          "FAILED": 1,
+          "PASSED": 84,
+          "XFAIL": 1
+        },
+        "failures_outside_named_tests": 0
+      },
+      "gold": {
+        "run_id": "split-full-5b8e2642fd0b",
+        "report_sha256": "c2a8fa038097bf136d1ebd8ff44a948c3c95e51b4e2b8b16988c794fee749967",
+        "log_sha256": "0d9ee8d30cfa6a08d792f148bb6824f25feea290c00ca9af3c95549292fed090",
+        "target": {
+          "passed": 1,
+          "total": 1
+        },
+        "regression": {
+          "passed": 84,
+          "total": 84
+        },
+        "official_resolved": true,
+        "runner_summary": "================== 85 passed, 1 xfailed, 2 warnings in 0.86s ===================",
+        "module_result_counts": {
+          "PASSED": 85,
+          "XFAIL": 1
+        },
+        "failures_outside_named_tests": 0
+      },
+      "status": "validated"
+    }
+  ]
+}

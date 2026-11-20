@@ -3,7 +3,8 @@
 ## 2026-11-19
 
 - The shared delivery controller and trajectory labeler accept a fourth ordered user message for the SWE-bench Pro length comparison. The Lite release still contains 152 two- or three-message conversations.
-- Verified five additional Lite tasks with official base and reference-patch controls. Eight of the 152 Lite originals now have author runtime evidence.
+- The first November 19 batch verified five additional Lite tasks with official base and reference-patch controls, bringing coverage to 8 of 152.
+- The second batch and its seaborn follow-up added five verified environments. Coverage reached 13 of 152 across all 10 repositories. Seaborn 2848 is recorded separately because its full test module had the same 22 extra failures in both controls.
 
 ## team_v1 — 2026-11-03
 

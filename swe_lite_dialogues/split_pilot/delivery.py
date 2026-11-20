@@ -34,9 +34,9 @@ def validate_action(action):
 class Delivery:
     def __init__(self, record, condition="wait", interrupt_after=2):
         messages = record["messages"]
-        if len(messages) not in (2, 3) or any(m["id"] != "U" + str(i)
+        if len(messages) not in (2, 3, 4) or any(m["id"] != "U" + str(i)
                                              for i, m in enumerate(messages)):
-            raise ValueError("Expected ordered U0/U1 or U0/U1/U2")
+            raise ValueError("Expected two to four consecutive messages starting at U0")
         if condition not in ("wait", "interrupt", "full"):
             raise ValueError("Unknown condition")
         if type(interrupt_after) is not int or interrupt_after < 1:

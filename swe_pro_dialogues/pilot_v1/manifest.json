@@ -1,0 +1,16 @@
+{
+  "dataset": "ScaleAI/SWE-bench_Pro",
+  "revision": "2d52cb3df914a3fcf80c7f66738b3a88ae37fc50",
+  "parquet_sha256": "1067f72c1f43bbc578276888625db3b836cebb535546c9eaf824c5d5dd104a7f",
+  "visibility": "author_controller_only",
+  "candidate_count": 5,
+  "length_comparison_count": 1,
+  "environment_validated_original_task_count": 0,
+  "evaluation_sources_kind": "pinned_pro_v2_row_references",
+  "solver_experiments": 0,
+  "files": {
+    "candidates.jsonl": "47e83d33243db73275fc51222308de8bf4a02b5ad133d85372cd313a0854a433",
+    "evaluation_sources.jsonl": "a6861d07b0ab07d24590f7b6fa734966cab241479204119a131b51b9a894163c",
+    "length_comparison.jsonl": "12f8d8c7c5c8b8d417e36ba3fc61c938849dc2bfe51cf31314b5125a0391260c"
+  }
+}

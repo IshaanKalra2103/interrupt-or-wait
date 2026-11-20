@@ -1,0 +1,437 @@
+{
+  "yaml-undefined": {
+    "verdict": "accept_for_development",
+    "reviewer": "assistant author-side semantic review",
+    "source_version": "2.0.0",
+    "public_row_sha256": "e5ff674038627bebafa538dfea492c0427a87b0c823dbd954fddfb4d58823c89",
+    "grading_sha256": "5af79762dbe33c91ffb2a18638ae2eaae9d7c35422cb753fc930e4bd2472e120",
+    "full_prompt_sha256": "097f56d8589d4b75887ea1e4f245c34f588a2f757d8573fde0378b355f80d733",
+    "plan_sha256": "f7687aeeb7d166e875fdc4cda29501aaf898aebe4f390cfbed95310406958d2e",
+    "wording_input_sha256": "46266d155a24ca19be4f8a090129f863c0b024f3dc8d763ede8c1404eddd6df5",
+    "prompt_sha256": "e6dcf65b950e4334aa2c457c50a39e3a3f31da30af1fc9aa72533f58448314dc",
+    "schema_sha256": "2ef1d7388985cd0f18640efc945972f9c5b7efc5d84d936d9ec5ce5f2802effa",
+    "answer_sha256": "0aee4fd83280e0a21e20463fece5a63ae5283ea428eee619d21fdc13d36e4698",
+    "requested_model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "model_usage": {
+      "input_tokens": 10230,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 372,
+      "reasoning_output_tokens": 59
+    },
+    "answer": {
+      "decision": "propose_split",
+      "reason": "The stages clearly separate the initial exception requirement from its explicit replacement.",
+      "messages": [
+        {
+          "id": "U0",
+          "content": "Fix undefined-value handling in `lib/ansible/parsing/yaml/dumper.py`. Currently, dumping an `AnsibleUndefined` through `AnsibleDumper`, such as through `to_yaml` or `to_nice_yaml`, raises a YAML `RepresenterError` that hides the undefined-variable cause. Make it raise `AnsibleUndefinedVariable` instead. It must not emit serialized YAML for that value or coerce it to null. Keep the existing handling of all other supported data types unchanged."
+        },
+        {
+          "id": "U1",
+          "content": "Replace my earlier requirement to raise `AnsibleUndefinedVariable`: dumping an `AnsibleUndefined` must instead propagate the templating engine's native `UndefinedError` from `jinja2.exceptions`, without converting it to `AnsibleUndefinedVariable` or reporting a YAML representation failure. In `lib/ansible/parsing/yaml/dumper.py`, provide `represent_undefined(self, data: AnsibleUndefined)` and register it on `AnsibleDumper` for `AnsibleUndefined` values. It must propagate that error rather than return a representation, so no serialized YAML is emitted for the undefined value."
+        }
+      ],
+      "risks": []
+    },
+    "interface_stage": 1,
+    "semantic_review": "U0 explicitly requests the project exception. U1 withdraws it and specifies the Jinja exception. These cannot both be the outward exception on the same call. The temporary policy is synthetic.",
+    "test_mapping": [
+      {
+        "requirements": [
+          "r1",
+          "r2",
+          "interface"
+        ],
+        "tests": [
+          "test/units/parsing/yaml/test_dumper.py::TestAnsibleDumper::test_undefined"
+        ],
+        "coverage": "The undefined-value test catches Jinja UndefinedError and checks the absence of YAML. The source patch confirms the representer path; the test alone would also accept a helper returning None."
+      },
+      {
+        "requirements": [
+          "r3"
+        ],
+        "tests": [
+          "test/units/parsing/yaml/test_dumper.py::TestAnsibleDumper::test_ansible_vault_encrypted_unicode",
+          "test/units/parsing/yaml/test_dumper.py::TestAnsibleDumper::test_bytes",
+          "test/units/parsing/yaml/test_dumper.py::TestAnsibleDumper::test_unicode",
+          "test/units/parsing/yaml/test_dumper.py::TestAnsibleDumper::test_vars_with_sources"
+        ],
+        "coverage": "Four named dumper regressions sample the promise to preserve other types."
+      }
+    ],
+    "original_test_counts": {
+      "fail_to_pass": 1,
+      "pass_to_pass": 4
+    }
+  },
+  "import-validation": {
+    "verdict": "accept_for_development",
+    "reviewer": "assistant author-side semantic review",
+    "source_version": "2.0.0",
+    "public_row_sha256": "397653c896f39168c49cf2ef1be01fcc87f89f32131317c6933da6357e85b76d",
+    "grading_sha256": "17a33c195ba2a56131445a47d04500c439aa11a77d93bd4f82ae1534c3addd30",
+    "full_prompt_sha256": "2c5d045129ab2734678ffb8555e4bf67b377c860c1b22c35d6050614bff166ce",
+    "plan_sha256": "94a8e62664e69848507670a4db1658228291f29d84fc48a13491ebc11454bb90",
+    "wording_input_sha256": "34897f550f5176a6459d0c2a7df53a9e18175f3b92288239b9bea79ce5d3191a",
+    "prompt_sha256": "e6dcf65b950e4334aa2c457c50a39e3a3f31da30af1fc9aa72533f58448314dc",
+    "schema_sha256": "2ef1d7388985cd0f18640efc945972f9c5b7efc5d84d936d9ec5ce5f2802effa",
+    "answer_sha256": "d23f014ea185f5634823d2a6904e6530b06586943c511ad31fc73871376680a6",
+    "requested_model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "model_usage": {
+      "input_tokens": 10747,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 717,
+      "reasoning_output_tokens": 137
+    },
+    "answer": {
+      "decision": "propose_split",
+      "reason": "The stages introduce completeness, add the differentiable alternative, and then resolve validation order and error behavior without conflicting requirements.",
+      "messages": [
+        {
+          "id": "U0",
+          "content": "Please update the import validator in `openlibrary/plugins/importapi/import_validator.py` to support complete book records. A record is complete only if `title` is non-empty, `authors` contains at least one author with a non-empty `name`, `publish_date` is non-empty, `publishers` contains at least one non-empty element, and `source_records` contains at least one non-empty element."
+        },
+        {
+          "id": "U1",
+          "content": "Also accept differentiable records as an alternative to complete records. A differentiable record requires a non-empty `title`, `source_records` containing at least one non-empty element, and at least one strong identifier supplied as a non-empty list. The recognized strong identifiers must be exactly `isbn_10`, `isbn_13`, and `lccn`; only these qualify.\n\nExpose two public Pydantic models in `openlibrary/plugins/importapi/import_validator.py`: `CompleteBookPlus`, requiring `title: str`, `source_records: list[str]`, `authors: list[Author]`, `publishers: list[str]`, and `publish_date: str`; and `StrongIdentifierBookPlus`, with `title: str`, `source_records: list[str]`, and the identifier fields `isbn_10: list[str]`, `isbn_13: list[str]`, and `lccn: list[str]`. The identifier fields are alternatives, so callers need not supply all three. Add the model validator `StrongIdentifierBookPlus.at_least_one_valid_strong_identifier(self) -> Self`, which raises `ValueError` when no strong identifier is supplied in a non-empty list.\n\nAll string fields involved in these criteria must be non-empty, and all involved collections must contain at least one non-empty element. Limit validation to the structural integrity required by these criteria; do not add data sanity checks.\n\nWhich criterion should be attempted first, and which error should callers receive if both fail?"
+        },
+        {
+          "id": "U2",
+          "content": "Use `import_validator.validate(data: dict[str, Any]) -> bool` to decide acceptance. It must first attempt the complete-record criterion and, if that fails, attempt the differentiable-record criterion. Return `True` if either passes. If both fail, raise the first `pydantic.ValidationError` encountered, preserving the original error from the complete-record attempt."
+        }
+      ],
+      "risks": []
+    },
+    "interface_stage": 1,
+    "semantic_review": "U0 gives only the complete-record criterion without forbidding other records. U1 adds the strong-identifier route and opens failure selection. U2 supplies the order and first-error rule. The initial criterion can be partly satisfied on base.",
+    "test_mapping": [
+      {
+        "requirements": [
+          "r2"
+        ],
+        "tests": [
+          "openlibrary/plugins/importapi/tests/test_import_validator.py::test_validate",
+          "openlibrary/plugins/importapi/tests/test_import_validator.py::test_validate_empty_list[authors]",
+          "openlibrary/plugins/importapi/tests/test_import_validator.py::test_validate_empty_list[publishers]",
+          "openlibrary/plugins/importapi/tests/test_import_validator.py::test_validate_empty_list[source_records]",
+          "openlibrary/plugins/importapi/tests/test_import_validator.py::test_validate_empty_string[publish_date]",
+          "openlibrary/plugins/importapi/tests/test_import_validator.py::test_validate_empty_string[title]",
+          "openlibrary/plugins/importapi/tests/test_import_validator.py::test_validate_list_with_an_empty_string[publishers]",
+          "openlibrary/plugins/importapi/tests/test_import_validator.py::test_validate_list_with_an_empty_string[source_records]",
+          "openlibrary/plugins/importapi/tests/test_import_validator.py::test_validate_record_with_missing_required_fields[authors]",
+          "openlibrary/plugins/importapi/tests/test_import_validator.py::test_validate_record_with_missing_required_fields[publish_date]",
+          "openlibrary/plugins/importapi/tests/test_import_validator.py::test_validate_record_with_missing_required_fields[publishers]",
+          "openlibrary/plugins/importapi/tests/test_import_validator.py::test_validate_record_with_missing_required_fields[source_records]",
+          "openlibrary/plugins/importapi/tests/test_import_validator.py::test_validate_record_with_missing_required_fields[title]"
+        ],
+        "coverage": "Complete record and negative structural cases."
+      },
+      {
+        "requirements": [
+          "r3",
+          "r4",
+          "r7",
+          "r8",
+          "r9",
+          "interface"
+        ],
+        "tests": [
+          "openlibrary/plugins/importapi/tests/test_import_validator.py::test_validate_isolated_strong_identifier[isbn_10-value0]",
+          "openlibrary/plugins/importapi/tests/test_import_validator.py::test_validate_isolated_strong_identifier[lccn-value1]",
+          "openlibrary/plugins/importapi/tests/test_import_validator.py::test_validate_multiple_strong_identifiers[isbn_10]",
+          "openlibrary/plugins/importapi/tests/test_import_validator.py::test_validate_multiple_strong_identifiers[lccn]",
+          "openlibrary/plugins/importapi/tests/test_import_validator.py::test_validate_strong_identifier_minimal",
+          "openlibrary/plugins/importapi/tests/test_import_validator.py::test_create_an_author_with_no_name",
+          "openlibrary/plugins/importapi/tests/test_import_validator.py::test_validate_not_complete_no_strong_identifier[isbn_13]"
+        ],
+        "coverage": "Tests cover incomplete records, identifier alternatives and invalid structure. Exact public model names and absence of every possible extra sanity check have partial coverage."
+      },
+      {
+        "requirements": [
+          "r1",
+          "r5",
+          "r6"
+        ],
+        "tests": [
+          "openlibrary/plugins/importapi/tests/test_import_validator.py::test_validate_strong_identifier_minimal",
+          "openlibrary/plugins/importapi/tests/test_import_validator.py::test_validate",
+          "openlibrary/plugins/importapi/tests/test_import_validator.py::test_validate_not_complete_no_strong_identifier[isbn_13]"
+        ],
+        "coverage": "Success and dual-failure paths reach validate. The source patch shows complete first and raising the first stored error; the mapped assertions do not distinguish every exception detail."
+      }
+    ],
+    "original_test_counts": {
+      "fail_to_pass": 5,
+      "pass_to_pass": 15
+    }
+  },
+  "toc-markdown": {
+    "verdict": "accept_for_development",
+    "reviewer": "assistant author-side semantic review",
+    "source_version": "2.0.0",
+    "public_row_sha256": "ea185f97825a744d96485bc616962cdee2d4fdda283c3f2b993ed3e5e3066932",
+    "grading_sha256": "06b4fb77341ade11793348f29029a4bdc98748e7022b515a94a9d53280681f0f",
+    "full_prompt_sha256": "ee881f86c58a1acaa4543aa34fddd710f6d43da0b126866bd8b6584ec13903d1",
+    "plan_sha256": "e082a10664f50d93c9513eb74b1daf9103aa79a008f0aa30e34902bf9fbd9e00",
+    "wording_input_sha256": "afab5229feaa2c013d7073d82789212e7186ac1ae3adc5e35cf491af83b86006",
+    "prompt_sha256": "e6dcf65b950e4334aa2c457c50a39e3a3f31da30af1fc9aa72533f58448314dc",
+    "schema_sha256": "2ef1d7388985cd0f18640efc945972f9c5b7efc5d84d936d9ec5ce5f2802effa",
+    "answer_sha256": "01fbffd6ab0936dffa23cfbb7e9fe6f49f7b74c227c342e886eb6aa4e43f98fe",
+    "requested_model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "model_usage": {
+      "input_tokens": 10981,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 916,
+      "reasoning_output_tokens": 89
+    },
+    "answer": {
+      "decision": "propose_split",
+      "reason": "The stages add serialization, metadata output, Markdown parsing, and database loading requirements without conflicts.",
+      "messages": [
+        {
+          "id": "U0",
+          "content": "In `openlibrary/plugins/upstream/table_of_contents.py`, update `TocEntry.to_markdown()` for simple entries containing only the base fields: level, label, title, and page number.\n\nJoin three columns—the level-and-label segment, title, and page number—with exactly `\" | \"` (space, pipe, space). Empty titles and page numbers must still occupy their columns. The first segment consists of as many `*` characters as the entry level, plus the label only when present. Without a label, insert no extra space between the asterisks and the separator.\n\nThese exact outputs are authoritative:\n- `TocEntry(level=0, title=\"Chapter 1\", pagenum=\"1\").to_markdown()` returns `\" | Chapter 1 | 1\"`.\n- `TocEntry(level=2, title=\"Chapter 1\", pagenum=\"1\").to_markdown()` returns `\"** | Chapter 1 | 1\"`.\n- `TocEntry(level=0, title=\"Just title\").to_markdown()` returns `\" | Just title | \"`.\n\nFor a level-0 entry without a label, the first segment is empty, so the separator supplies exactly one leading space before the first `|`, never two. Update any previous whitespace behavior that differs from these strings."
+        },
+        {
+          "id": "U1",
+          "content": "Extend the Markdown output to preserve optional metadata. When `authors`, `subtitle`, or `description` is not `None`, append a fourth column containing a JSON object of the extra fields, using the same `\" | \"` separator. Encode the object with compact standard-library JSON formatting, with a space after each colon and comma. Entries without optional metadata must still have only the three base columns.\n\nFor example, `TocEntry(level=0, title=\"\", authors=[{\"name\": \"Author 1\"}]).to_markdown()` must return exactly `' |  |  | {\"authors\": [{\"name\": \"Author 1\"}]}'`.\n\nIn `openlibrary/plugins/upstream/table_of_contents.py`, provide `TocEntry.extra_fields` as a cached property returning a dictionary of non-base metadata fields whose values are not `None`. Also provide the `InfogamiThingEncoder` custom JSON encoder and use it when serializing extra fields so that non-JSON-native values encountered there can be serialized."
+        },
+        {
+          "id": "U2",
+          "content": "Add support for reading this Markdown format with `TocEntry.from_markdown()`. Parse the same pipe-separated base columns and optional fourth JSON column, restoring the base fields and any extra metadata keys from the JSON.\n\n`TocEntry.from_markdown(' | Just title |  | {\"authors\": [{\"name\": \"Author 1\"}]}')` must equal `TocEntry(level=0, title=\"Just title\", authors=[{\"name\": \"Author 1\"}])`.\n\nPreserve the plain-title fallback: a line containing no `|` is a title at level 0, with no label, page number, or extra metadata. For example, `TocEntry.from_markdown(\"Chapter missing pipe\")` must equal `TocEntry(level=0, title=\"Chapter missing pipe\")`."
+        },
+        {
+          "id": "U3",
+          "content": "Also preserve the optional `authors`, `subtitle`, and `description` metadata fields when loading Table of Contents entries from database records."
+        }
+      ],
+      "risks": []
+    },
+    "interface_stage": 1,
+    "semantic_review": "U0 explicitly scopes three columns to simple entries. U1 adds optional Markdown output, U2 adds Markdown input, U3 covers loading database records. Merging U1 and U2 changes only the delivery boundary. Database loading is already a named pass-to-pass check.",
+    "test_mapping": [
+      {
+        "requirements": [
+          "r1",
+          "r2",
+          "r3",
+          "r4",
+          "r8",
+          "r9",
+          "r10",
+          "r11",
+          "r12",
+          "r13",
+          "r15",
+          "r16",
+          "interface"
+        ],
+        "tests": [
+          "openlibrary/plugins/upstream/tests/test_table_of_contents.py::TestTocEntry::test_to_markdown"
+        ],
+        "coverage": "The target contains exact whitespace and optional-JSON assertions; the encoder/property names are also present in the reference change. The test samples some metadata types."
+      },
+      {
+        "requirements": [
+          "r5",
+          "r6",
+          "r17",
+          "r18"
+        ],
+        "tests": [
+          "openlibrary/plugins/upstream/tests/test_table_of_contents.py::TestTocEntry::test_from_markdown"
+        ],
+        "coverage": "The input target covers the optional JSON column and the plain-title fallback."
+      },
+      {
+        "requirements": [
+          "r7",
+          "r14"
+        ],
+        "tests": [
+          "openlibrary/plugins/upstream/tests/test_table_of_contents.py::TestTableOfContents::test_from_db_complex"
+        ],
+        "coverage": "test_from_db_complex is listed in pass-to-pass. It asserts the separate database-loading behavior but does not demonstrate that a fourth edit is needed."
+      }
+    ],
+    "original_test_counts": {
+      "fail_to_pass": 2,
+      "pass_to_pass": 11
+    },
+    "prior_held_wording": {
+      "reason": "The first U0 could prescribe exactly three columns for all entries, conflicting with the later optional fourth column.",
+      "answer_sha256": "71fd5f1e384d43e270930322a013d4369390516ddbb0f25c96f10f5539e5803c",
+      "wording_input_sha256": "d7b9743fa622d5a143faad85f556d5d2120d868bcc08ed1df752a6aabe7b3078",
+      "model_usage": {
+        "input_tokens": 10951,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 947,
+        "reasoning_output_tokens": 140
+      }
+    }
+  },
+  "webkit-error-signal": {
+    "verdict": "accept_for_development",
+    "reviewer": "assistant author-side semantic review",
+    "source_version": "2.0.0",
+    "public_row_sha256": "ae5fa52e5e8f6652301fb3a82a13e0f7b441425e7cfdfef5902edffc0a5ba99a",
+    "grading_sha256": "65e08306f119df7b4c601e92057d2abf867114f5421766a7cf5183f6e5817389",
+    "full_prompt_sha256": "74fca0c0cee5dadd448ac3fe777a23da52de84c97d6e8bc2e3d0c9f37c8985dd",
+    "plan_sha256": "de73a4015abd1dc010a40fe22053f9f4e4054fb9538c51c7bdea9b4d6a45841f",
+    "wording_input_sha256": "001fcce0431d3fa0262501b8b7ba6da89b1ad64c995cc0dc1274c7df2cdf734d",
+    "prompt_sha256": "e6dcf65b950e4334aa2c457c50a39e3a3f31da30af1fc9aa72533f58448314dc",
+    "schema_sha256": "2ef1d7388985cd0f18640efc945972f9c5b7efc5d84d936d9ec5ce5f2802effa",
+    "answer_sha256": "e866ae1b648936d27cd13d88920766e0b8a866dd52a2f8987a0ca41add07d582",
+    "requested_model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "model_usage": {
+      "input_tokens": 9992,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 360,
+      "reasoning_output_tokens": 208
+    },
+    "answer": {
+      "decision": "propose_split",
+      "reason": "The stages separate investigation from the clarification selecting the error signal.",
+      "messages": [
+        {
+          "id": "U0",
+          "content": "Please investigate error-reply construction in the WebKit `NetworkReply` implementation. Start by tracing how an error reply is created and how callers receive the initial error notification. Which Qt error signal should carry the error code when the reply is constructed? Leave the signal choice open for now."
+        },
+        {
+          "id": "U1",
+          "content": "Use `errorOccurred` with the error code for the initial error emission when a WebKit `NetworkReply` error reply is constructed. This should replace the legacy `error` signal emission."
+        }
+      ],
+      "risks": []
+    },
+    "interface_stage": null,
+    "semantic_review": "U0 identifies the component, event and timing, with the signal choice expressly open. U1 resolves that single choice. Investigation alone may satisfy U0. The upstream change touching multiple files gives no independent user requirement.",
+    "test_mapping": [
+      {
+        "requirements": [
+          "r1"
+        ],
+        "tests": [
+          "tests/unit/browser/webkit/network/test_networkreply.py::test_error_network_reply"
+        ],
+        "coverage": "The test waits for errorOccurred and finished in order. The precise emitted error code is visible in the reference change and is not independently asserted by this signal wait."
+      }
+    ],
+    "original_test_counts": {
+      "fail_to_pass": 1,
+      "pass_to_pass": 9
+    }
+  },
+  "filesystem-completion": {
+    "verdict": "accept_for_development",
+    "reviewer": "assistant author-side semantic review",
+    "source_version": "2.0.0",
+    "public_row_sha256": "3714ed41d52b6ab92df88f910728263706033e350df1c746f1153748d4243c57",
+    "grading_sha256": "3b9e02ee82913f73de4672019c36affc2a0e2383a6216fb153f64b3c95c2c073",
+    "full_prompt_sha256": "52ea94352c98a9cbdc7044b64cb693346258cb8eed377df1f0bca4300a630c4e",
+    "plan_sha256": "9f7cae4f5a0d732bb7c132dd454833f751fdca585d999a9e938a314990af5e8f",
+    "wording_input_sha256": "8373fa60db3972204d13da9e95850998a9df6edf4dd3fd7aecc59a06531e474d",
+    "prompt_sha256": "e6dcf65b950e4334aa2c457c50a39e3a3f31da30af1fc9aa72533f58448314dc",
+    "schema_sha256": "2ef1d7388985cd0f18640efc945972f9c5b7efc5d84d936d9ec5ce5f2802effa",
+    "answer_sha256": "4bee65dce9d6f982743fc94c5c2113821d3aed139feb5406d61775230979cf5e",
+    "requested_model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "model_usage": {
+      "input_tokens": 11258,
+      "cached_input_tokens": 7680,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 774,
+      "reasoning_output_tokens": 66
+    },
+    "answer": {
+      "decision": "propose_split",
+      "reason": "The stages can introduce the category and public interface first, then resolve the two input-specific policies separately.",
+      "messages": [
+        {
+          "id": "U0",
+          "content": "Add a configurable filesystem completion category for `:open`. Start by adding `filesystem` to the `valid_values` of `completion.open_categories` and including it in that setting's default alongside `searchengines`, `quickmarks`, `bookmarks`, and `history`. Its inclusion in the default must be unconditional, independent of any other completion setting or configuration state.\n\nThe URL completion model must expose a category named exactly `Filesystem` whenever `filesystem` is enabled in `completion.open_categories`, and omit it otherwise. Keep the enabled category present even when it has no entries. Its presence or absence must preserve the existing entries and representation of the other categories, including `Quickmarks`, `Bookmarks`, and `History`.\n\nCreate `qutebrowser/completion/models/filepathcategory.py`, providing `filepathcategory.FilePathCategory` as a subclass of `QAbstractListModel`. Provide these public methods:\n\n- `set_pattern(self, val: str)`: compute path suggestions from the partially typed URL or path.\n- `data(self, index: QModelIndex, role: int = Qt.DisplayRole) -> Optional[str]`: return the path string for the display role.\n- `rowCount(self, parent: QModelIndex = QModelIndex()) -> int`: return the number of path suggestion rows.\n\nTwo input policies remain undecided: where empty-pattern entries come from, how their source is configured, and what their rows contain; and which matches, ordering, and row contents a typed absolute directory should produce."
+        },
+        {
+          "id": "U1",
+          "content": "For the empty-pattern case, add `completion.favorite_paths` in `qutebrowser/config/configdata.yml` with type `List/String` and default `[]`.\n\nWhen the completion pattern is updated to `''`, the `Filesystem` category must contain exactly the configured favorite paths, one entry per configured path. Each entry must be a three-element tuple `(path, None, None)`, preserving the configured path string unchanged, with no decoration, description, or further column data. For example, `completion.favorite_paths = ['/some/dir']` must produce exactly `[('/some/dir', None, None)]`.\n\nThe typed-directory matching, ordering, and row-content policy remains undecided."
+        },
+        {
+          "id": "U2",
+          "content": "For a completion pattern that is an absolute directory path ending with the path separator, list the entries directly under that directory in ascending order by name. Each suggestion must be a three-element tuple `(path, None, None)`, where `path` is the typed pattern concatenated with the entry name, with no description or further column data.\n\nFor example, if the directory contains `file1.txt` and `file2.txt` and the pattern is `val = '<dir>' + os.sep`, the category must contain exactly `[(val + 'file1.txt', None, None), (val + 'file2.txt', None, None)]` in that order."
+        }
+      ],
+      "risks": []
+    },
+    "interface_stage": 0,
+    "semantic_review": "U0 introduces the general Qt model interface and identifies both pending pattern policies. U1 resolves the source, configuration and row contents for blank input. U2 resolves matching, ordering and row contents for a typed directory.",
+    "test_mapping": [
+      {
+        "requirements": [
+          "r1",
+          "r2",
+          "r4",
+          "r5",
+          "r6",
+          "r9",
+          "r11",
+          "interface"
+        ],
+        "tests": [
+          "tests/unit/completion/test_models.py::test_filesystem_completion",
+          "tests/unit/completion/test_models.py::test_default_filesystem_completion",
+          "tests/unit/completion/test_models.py::test_url_completion_no_quickmarks",
+          "tests/unit/completion/test_models.py::test_url_completion_no_bookmarks"
+        ],
+        "coverage": "The completion tests exercise the category model and preservation of other category layouts. The config default, unconditional enablement and exact interface declarations also rely on static source review."
+      },
+      {
+        "requirements": [
+          "r3",
+          "r7",
+          "r10",
+          "r12"
+        ],
+        "tests": [
+          "tests/unit/completion/test_models.py::test_default_filesystem_completion"
+        ],
+        "coverage": "The explicit favorite-path setting drives the empty-pattern tuple assertion. The empty option default is also visible in the source change."
+      },
+      {
+        "requirements": [
+          "r8",
+          "r13"
+        ],
+        "tests": [
+          "tests/unit/completion/test_models.py::test_filesystem_completion"
+        ],
+        "coverage": "The directory test asserts the two ordered three-column rows for a trailing separator."
+      }
+    ],
+    "original_test_counts": {
+      "fail_to_pass": 4,
+      "pass_to_pass": 54
+    },
+    "prior_held_wording": {
+      "reason": "The first U2 introduced the full public Qt model interface while labeled as solely clarifying directory behavior.",
+      "answer_sha256": "6bf21264099c7b68aa3505593670c3572ecd7d652bb5152101739adea3707d2e",
+      "wording_input_sha256": "5bf05dfeb0f15c7b090e5707a0eb45d5bb65777479c1103b72115ebad6f02bf9",
+      "model_usage": {
+        "input_tokens": 11214,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 758,
+        "reasoning_output_tokens": 74
+      }
+    }
+  }
+}

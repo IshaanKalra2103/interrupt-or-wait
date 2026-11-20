@@ -1,0 +1,52 @@
+[
+  {
+    "name": "yaml-undefined",
+    "instance_id": "instance_ansible__ansible-12734fa21c08a0ce8c84e533abdc560db2eb1955-v7eee2454f617569fd6889f2211f75bc02a35f9f8",
+    "stages": [
+      {"type": "initial", "bullets": [2, 3], "temporary": {"t1": "Raise AnsibleUndefinedVariable when the YAML dumper encounters AnsibleUndefined."}, "focus": "Request a meaningful Ansible-level error. No YAML output for an undefined value. Keep existing handling of other types."},
+      {"type": "revision", "bullets": [1], "retire": ["t1"], "focus": "Explicitly replace the earlier Ansible exception with propagation of Jinja's native UndefinedError. Include the represent_undefined interface here."}
+    ],
+    "length_reason": "Changing the outward exception is one observable reversal. Omitting YAML output is part of that failure path."
+  },
+  {
+    "name": "import-validation",
+    "instance_id": "instance_internetarchive__openlibrary-00bec1e7c8f3272c469a58e1377df03f955ed478-v13642507b4fc1f8d234172bf8129942da2c2ca26",
+    "stages": [
+      {"type": "initial", "bullets": [2], "focus": "Request support for complete records in the import validator. State the full completeness criterion. Do not claim that incomplete records must be rejected."},
+      {"type": "addition", "bullets": [3, 4, 7, 8, 9], "open": {"q1": "The order of the two validation attempts and the error a caller should see if neither accepts a record."}, "focus": "Add the alternative strong-identifier route alongside the complete route. State the public model names and the strong-identifier model validator interface, structural checks and the scope of validation. Leave the error policy pending."},
+      {"type": "clarification", "bullets": [1, 5, 6], "resolve": ["q1"], "focus": "Settle attempt order, success return, and which original validation error the caller receives."}
+    ],
+    "length_reason": "The acceptance of complete records, the alternative acceptance of differentiable records, and the failure contract offer three distinct requests. The three identifier names define one set."
+  },
+  {
+    "name": "toc-markdown",
+    "instance_id": "instance_internetarchive__openlibrary-09865f5fb549694d969f0a8e49b9d204ef1853ca-ve8c8d62a2b60610a3c4631f5f23ed866bada9818",
+    "merge_additions_for_primary": [1, 2],
+    "stages": [
+      {"type": "initial", "bullets": [1, 2, 3, 8, 9, 10, 11, 12, 13], "focus": "Explicitly limit this request to simple entries containing only the base fields. Specify their columns, level, label, missing values and exact whitespace. Do not set a maximum column count for other entries or mention any future metadata format. Keep exact strings exact."},
+      {"type": "addition", "bullets": [4, 15, 16], "focus": "Add optional metadata on Markdown output. Include TocEntry.extra_fields and InfogamiThingEncoder as described in the source interface."},
+      {"type": "addition", "bullets": [5, 6, 17, 18], "focus": "Add Markdown input: parse base columns, restore optional JSON and retain the plain-title fallback. This stage must make sense as a follow-up to rendering."},
+      {"type": "addition", "bullets": [7, 14], "focus": "Also preserve metadata when loading TOC entries from database records."}
+    ],
+    "length_reason": "Four distinct entry points/behaviors can be inspected separately. The three-message primary groups optional Markdown output and input into one round-trip request. Both lengths use exactly the same original goal."
+  },
+  {
+    "name": "webkit-error-signal",
+    "instance_id": "instance_qutebrowser__qutebrowser-0833b5f6f140d04200ec91605f88704dd18e2970-v059c6fdc75567943479b23ebca7c07b5e9a7f34c",
+    "stages": [
+      {"type": "initial", "bullets": [], "open": {"q1": "Which Qt error signal should carry the error code when a WebKit NetworkReply error reply is constructed?"}, "focus": "Give an actionable investigation of error replies and the initial notification to callers in the WebKit NetworkReply implementation. Leave the signal choice open."},
+      {"type": "clarification", "bullets": [1], "resolve": ["q1"], "focus": "Settle the initial error signal, the argument, and the replacement of the old signal."}
+    ],
+    "length_reason": "This has one final signal contract. U0 supports investigation and may require no edit. Another stage would repeat the same signal choice."
+  },
+  {
+    "name": "filesystem-completion",
+    "instance_id": "instance_qutebrowser__qutebrowser-0fc6d1109d041c69a68a896db87cf1b8c194cef7-v2ef375ac784985212b1805e1d0431dc8f1b3c171",
+    "stages": [
+      {"type": "initial", "bullets": [1, 2, 4, 5, 6, 9, 11], "open": {"q1": "Where should empty-pattern entries come from, how should their source be configured, and what should their rows contain?", "q2": "Which matches, order and row contents should a typed absolute directory produce?"}, "focus": "Introduce the configurable Filesystem category, its unconditional default, existing categories and visibility. Give the entire public filepathcategory.FilePathCategory interface now, including the file, base class, set_pattern, data and rowCount signatures and generic purposes. Both input-specific policies remain explicitly undecided. Do not name the later settings, ordering, or row values."},
+      {"type": "clarification", "bullets": [3, 7, 10, 12], "resolve": ["q1"], "focus": "Settle the blank-input case, the favorite_paths option and the exact row format. Keep typed-directory behavior open."},
+      {"type": "clarification", "bullets": [8, 13], "resolve": ["q2"], "focus": "Settle only the absolute-directory-with-trailing-separator case, ordering and row shape."}
+    ],
+    "length_reason": "Configuration, empty-input suggestions and typed-directory suggestions are distinct. Repeated wording about the default and repeated tuple examples do not justify another update."
+  }
+]

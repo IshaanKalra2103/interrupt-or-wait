@@ -25,8 +25,8 @@ def classify(update_types):
 def label_record(record):
     messages = record["messages"]
     n = len(messages)
-    if n not in (2, 3) or [m["id"] for m in messages] != ["U" + str(i) for i in range(n)]:
-        raise ValueError("Expected ordered U0/U1 or U0/U1/U2")
+    if n not in (2, 3, 4) or [m["id"] for m in messages] != ["U" + str(i) for i in range(n)]:
+        raise ValueError("Expected two to four consecutive messages starting at U0")
     updates = record.get("update_types")
     if updates is None:
         if n != 2:
